@@ -4,36 +4,45 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    tools:context=".launcher.LauncherActivity">
+    tools:context=".launcher.LauncherActivity"
+    android:paddingTop="24dp"
+    android:paddingLeft="36dp"
+    android:paddingRight="36dp"
+    android:paddingBottom="24dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
         android:textColor="#2e2727"
         android:textSize="30sp"
-        tools:text="Follow expenses" />
+        android:text="@string/follow_expenses"
+        android:layout_marginBottom="18dp"
+        android:textStyle="bold"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
         android:textColor="#24aa7b"
         android:textSize="30sp"
-        tools:text="from anywhere" />
+        android:text="@string/from_anywhere"
+        android:layout_marginBottom="60dp"
+        android:textStyle="bold"/>
 
     <RelativeLayout
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
+        android:layout_width="230dp"
+        android:layout_height="188dp"
+        android:layout_gravity="center_horizontal">
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="184dp"
+            android:layout_height="184dp"
             android:src="@drawable/ic_landmark" />
 
         <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_width="108dp"
+            android:layout_height="108dp"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentBottom="true"
             android:src="@drawable/ic_coins" />
 
     </RelativeLayout>
