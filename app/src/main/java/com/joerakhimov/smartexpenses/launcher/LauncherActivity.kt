@@ -1,8 +1,11 @@
 package com.joerakhimov.smartexpenses.launcher
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.joerakhimov.smartexpenses.R
+import com.joerakhimov.smartexpenses.main.MainActivity
+import kotlinx.android.synthetic.main.activity_launcher.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
@@ -16,6 +19,15 @@ class LauncherActivity : AppCompatActivity(), KodeinAware {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_launcher)
+
+        button_sign_in.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+
+        button_sign_up.setOnClickListener {
+            startActivity(Intent(this, MainActivity::class.java))
+        }
+
     }
 
 }
