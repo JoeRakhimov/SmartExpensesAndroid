@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.activity_launcher.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
+import androidx.viewpager.widget.ViewPager
 
 class LauncherActivity : AppCompatActivity(), KodeinAware {
 
@@ -27,6 +28,9 @@ class LauncherActivity : AppCompatActivity(), KodeinAware {
         button_sign_up.setOnClickListener {
             startActivity(Intent(this, MainActivity::class.java))
         }
+
+        viewpager.adapter = LauncherPagerAdapter(supportFragmentManager)
+        indicator.setViewPager(viewpager);
 
     }
 

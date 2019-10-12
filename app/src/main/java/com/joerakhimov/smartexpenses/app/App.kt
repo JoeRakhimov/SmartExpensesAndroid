@@ -7,6 +7,7 @@ import org.kodein.di.KodeinAware
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.provider
 import org.kodein.di.generic.singleton
+import android.R
 
 class App: Application(), KodeinAware {
 

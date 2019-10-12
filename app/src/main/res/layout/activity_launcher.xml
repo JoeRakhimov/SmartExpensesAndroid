@@ -3,99 +3,78 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
-    android:paddingLeft="36dp"
-    android:paddingTop="24dp"
-    android:paddingRight="36dp"
-    android:paddingBottom="24dp"
     tools:context=".launcher.LauncherActivity">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="12dp"
-        android:text="@string/follow_expenses"
-        android:textColor="#2e2727"
-        android:textSize="30sp" />
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="72dp"
-        android:text="@string/from_anywhere"
-        android:textColor="#24aa7b"
-        android:textSize="30sp" />
-
-    <RelativeLayout
-        android:layout_width="230dp"
-        android:layout_height="188dp"
-        android:layout_gravity="center_horizontal">
-
-        <ImageView
-            android:layout_width="184dp"
-            android:layout_height="184dp"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/ic_landmark" />
-
-        <ImageView
-            android:layout_width="108dp"
-            android:layout_height="108dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:src="@drawable/ic_coins" />
-
-    </RelativeLayout>
-
-    <View
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/viewpager"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="1" />
 
-    <LinearLayout
-        android:id="@+id/button_sign_in"
+    <me.relex.circleindicator.CircleIndicator
+        android:id="@+id/indicator"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
-        android:layout_marginBottom="48dp"
-        android:background="@drawable/smart_button"
-        android:gravity="center">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:gravity="center_horizontal"
-            android:text="Sign in"
-            android:textAlignment="center"
-            android:textColor="#ffffff"
-            android:textSize="20sp" />
-
-    </LinearLayout>
+        android:layout_gravity="center_horizontal"
+        app:ci_drawable="@drawable/indicator"
+        android:layout_height="48dp"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:orientation="horizontal">
+        android:orientation="vertical"
+        android:paddingLeft="48dp"
+        android:paddingTop="24dp"
+        android:paddingRight="48dp"
+        android:paddingBottom="24dp">
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="8dp"
-            android:layout_marginRight="8dp"
-            android:gravity="center_horizontal"
-            android:text="Don’t have an account?"
-            android:textColor="#868281"
-            android:textSize="15sp" />
+        <LinearLayout
+            android:id="@+id/button_sign_in"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginBottom="48dp"
+            android:background="@drawable/smart_button"
+            android:gravity="center">
 
-        <TextView
-            android:id="@+id/button_sign_up"
-            android:layout_width="wrap_content"
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/sign_in"
+                android:textAlignment="center"
+                android:textColor="#ffffff"
+                android:textSize="20sp" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="Sign up"
-            android:textColor="#24aa7b"
-            android:textSize="15sp"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginRight="8dp"
+                android:gravity="center_horizontal"
+                android:text="@string/dont_have_an_account"
+                android:textColor="#868281"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/button_sign_up"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:text="@string/sign_up"
+                android:textColor="#24aa7b"
+                android:textSize="15sp"
+                android:textStyle="bold" />
+
+        </LinearLayout>
 
     </LinearLayout>
 
