@@ -1,4 +1,4 @@
-package com.joerakhimov.smartexpenses.launcher
+package com.joerakhimov.smartexpenses.screen.launcher
 
 import androidx.lifecycle.ViewModel
 

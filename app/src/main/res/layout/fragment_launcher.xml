@@ -5,9 +5,10 @@
     android:layout_height="match_parent"
     android:orientation="vertical"
     android:padding="48dp"
-    tools:context=".launcher.LauncherFragment">
+    tools:context=".screen.launcher.LauncherFragment">
 
     <TextView
+        android:id="@+id/textTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/follow_expenses"
@@ -15,6 +16,7 @@
         android:textSize="30sp" />
 
     <TextView
+        android:id="@+id/textSubtitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginBottom="72dp"
@@ -22,27 +24,12 @@
         android:textColor="#24aa7b"
         android:textSize="30sp" />
 
-
-    <RelativeLayout
-        android:layout_width="230dp"
-        android:layout_height="188dp"
+    <ImageView
+        android:id="@+id/imageWelcome"
+        android:layout_width="240dp"
+        android:layout_height="240dp"
+        android:src="@drawable/welcome1"
         android:layout_gravity="center"
-        android:gravity="center">
-
-        <ImageView
-            android:layout_width="184dp"
-            android:layout_height="184dp"
-            android:layout_alignParentRight="true"
-            android:src="@drawable/ic_landmark" />
-
-        <ImageView
-            android:layout_width="108dp"
-            android:layout_height="108dp"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:src="@drawable/ic_coins" />
-
-    </RelativeLayout>
+        android:gravity="center"/>
 
 </LinearLayout>

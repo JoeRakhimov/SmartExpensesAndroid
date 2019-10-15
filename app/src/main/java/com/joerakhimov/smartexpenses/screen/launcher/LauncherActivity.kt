@@ -1,15 +1,16 @@
-package com.joerakhimov.smartexpenses.launcher
+package com.joerakhimov.smartexpenses.screen.launcher
 
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.main.MainActivity
+import com.joerakhimov.smartexpenses.screen.signin.SignInActivity
+import com.joerakhimov.smartexpenses.screen.signup.SignUpActivity
 import kotlinx.android.synthetic.main.activity_launcher.*
 import org.kodein.di.KodeinAware
 import org.kodein.di.android.closestKodein
 import org.kodein.di.generic.instance
-import androidx.viewpager.widget.ViewPager
 
 class LauncherActivity : AppCompatActivity(), KodeinAware {
 
@@ -22,11 +23,11 @@ class LauncherActivity : AppCompatActivity(), KodeinAware {
         setContentView(R.layout.activity_launcher)
 
         button_sign_in.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, SignInActivity::class.java))
         }
 
         button_sign_up.setOnClickListener {
-            startActivity(Intent(this, MainActivity::class.java))
+            startActivity(Intent(this, SignUpActivity::class.java))
         }
 
         viewpager.adapter = LauncherPagerAdapter(supportFragmentManager)

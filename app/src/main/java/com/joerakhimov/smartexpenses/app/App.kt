@@ -1,13 +1,12 @@
 package com.joerakhimov.smartexpenses.app
 
 import android.app.Application
-import com.joerakhimov.smartexpenses.launcher.LauncherViewModelFactory
+import com.joerakhimov.smartexpenses.screen.launcher.LauncherViewModelFactory
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware
 import org.kodein.di.generic.bind
 import org.kodein.di.generic.provider
 import org.kodein.di.generic.singleton
-import android.R
 
 class App: Application(), KodeinAware {
 
