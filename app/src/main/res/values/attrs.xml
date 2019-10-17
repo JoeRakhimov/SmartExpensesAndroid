@@ -4,4 +4,8 @@
     <declare-styleable name="SmartText">
     </declare-styleable>
 
+    <declare-styleable name="SmartButton">
+        <attr name="smartButtonText" format="string"/>
+    </declare-styleable>
+
 </resources>
