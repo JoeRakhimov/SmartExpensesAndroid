@@ -20,21 +20,23 @@
         android:textSize="27sp"
         android:textStyle="bold" />
 
-    <EditText
+    <com.joerakhimov.smartexpenses.view.input.SmartInput
         android:id="@+id/inputEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:hint="@string/enter_your_e_mail"
-        android:inputType="textEmailAddress" />
+        app:smartInputHint="@string/enter_your_e_mail"
+        android:inputType="textEmailAddress"
+        app:smartInputLabel="@string/email_address" />
 
-    <EditText
+    <com.joerakhimov.smartexpenses.view.input.SmartInput
         android:id="@+id/inputPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="32dp"
-        android:hint="@string/enter_your_password"
-        android:inputType="textPassword" />
+        android:layout_marginBottom="64dp"
+        app:smartInputHint="@string/enter_your_password"
+        android:inputType="textPassword"
+        app:smartInputLabel="@string/password" />
 
     <com.joerakhimov.smartexpenses.view.button.SmartButton
         android:id="@+id/button_sign_in"

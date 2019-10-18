@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/smartInputLabel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="14sp"
+        android:textColor="#2e2727"
+        android:textStyle="normal"
+        android:layout_marginBottom="4dp"/>
+
+    <EditText
+        android:id="@+id/smartInput"
+        android:layout_width="match_parent"
+        android:layout_height="42dp"
+        android:paddingLeft="8dp"
+        android:paddingRight="8dp"
+        android:background="@drawable/smart_input"/>
+
+</LinearLayout>
