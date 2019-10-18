@@ -18,4 +18,9 @@
     <string name="enter_your_e_mail">Enter your e-mail</string>
     <string name="email_address">Email address</string>
     <string name="password">Password</string>
+    <string name="register">Register</string>
+    <string name="get_started">Get started...</string>
+    <string name="confirm_password">Confirm password</string>
+    <string name="register_now">Register now</string>
+    <string name="by_signing_up_i_agree_smart_expenses">By signing up, I agree Smart Expenses’\n<b> Terms and Conditions</b></string>
 </resources>
