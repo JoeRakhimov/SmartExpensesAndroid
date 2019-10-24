@@ -1,13 +1,13 @@
-package com.joerakhimov.smartexpenses.screen.launcher
+package com.joerakhimov.smartexpenses.screen.auth.welcome
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
 
-class LauncherViewModelFactory() : ViewModelProvider.Factory {
+class WelcomeViewModelFactory() : ViewModelProvider.Factory {
 
     @Suppress("UNCHECKED_CAST")
     override fun <T : ViewModel?> create(modelClass: Class<T>): T {
-        return LauncherViewModel() as T
+        return WelcomeViewModel() as T
     }
 
 }

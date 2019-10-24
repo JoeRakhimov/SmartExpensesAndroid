@@ -7,14 +7,15 @@
     android:gravity="center_horizontal"
     android:orientation="vertical"
     android:padding="24dp"
-    tools:context=".screen.signin.SignInActivity">
+    tools:context=".screen.auth.signin.SignInActivity">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:layout_marginBottom="32dp"
-        android:text="@string/get_started"
+        android:layout_marginTop="64dp"
+        android:layout_marginBottom="64dp"
+        android:gravity="center_horizontal"
+        android:text="@string/sign_in_to_smart_expenses"
         android:textColor="#2e2727"
         android:textSize="27sp"
         android:textStyle="bold" />
@@ -24,42 +25,24 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="32dp"
-        android:inputType="textEmailAddress"
         app:smartInputHint="@string/enter_your_e_mail"
+        android:inputType="textEmailAddress"
         app:smartInputLabel="@string/email_address" />
 
     <com.joerakhimov.smartexpenses.view.input.SmartInput
         android:id="@+id/inputPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="16dp"
-        android:inputType="textPassword"
+        android:layout_marginBottom="64dp"
         app:smartInputHint="@string/enter_your_password"
+        android:inputType="textPassword"
         app:smartInputLabel="@string/password" />
 
-    <com.joerakhimov.smartexpenses.view.input.SmartInput
-        android:id="@+id/inputConfirmPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="64dp"
-        android:inputType="textPassword"
-        app:smartInputHint="@string/enter_your_password"
-        app:smartInputLabel="@string/confirm_password" />
-
     <com.joerakhimov.smartexpenses.view.button.SmartButton
-        android:id="@+id/buttonRegister"
+        android:id="@+id/button_sign_in"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        app:smartButtonText="@string/register_now"
-        android:layout_marginBottom="24dp"/>
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:gravity="center_horizontal"
-        android:text="@string/by_signing_up_i_agree_smart_expenses"
-        android:lineSpacingExtra="8dp"
-        android:textColor="#868281"
-        android:textSize="13sp" />
+        android:layout_marginBottom="48dp"
+        app:smartButtonText="@string/sign_in" />
 
 </LinearLayout>

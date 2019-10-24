@@ -1,4 +1,4 @@
-package com.joerakhimov.smartexpenses.screen.launcher
+package com.joerakhimov.smartexpenses.screen.auth.welcome
 
 
 import android.os.Bundle

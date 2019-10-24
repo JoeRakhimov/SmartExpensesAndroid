@@ -1,4 +1,4 @@
-package com.joerakhimov.smartexpenses.screen.launcher
+package com.joerakhimov.smartexpenses.screen.auth.welcome
 
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentManager
@@ -6,7 +6,7 @@ import androidx.fragment.app.FragmentPagerAdapter
 import com.joerakhimov.smartexpenses.R
 
 
-class LauncherPagerAdapter(fragmentManager: FragmentManager) :
+class WelcomePagerAdapter(fragmentManager: FragmentManager) :
     FragmentPagerAdapter(fragmentManager) {
 
     // Returns total number of pages
