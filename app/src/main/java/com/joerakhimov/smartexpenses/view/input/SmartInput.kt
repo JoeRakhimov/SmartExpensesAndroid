@@ -7,6 +7,9 @@ import android.view.LayoutInflater
 import android.widget.LinearLayout
 import com.joerakhimov.smartexpenses.R
 import kotlinx.android.synthetic.main.smart_input.view.*
+import android.text.method.PasswordTransformationMethod
+import android.R.attr.password
+import android.graphics.Typeface
 
 class SmartInput(context: Context, attrs: AttributeSet) : LinearLayout(context, attrs) {
 
@@ -53,7 +56,13 @@ class SmartInput(context: Context, attrs: AttributeSet) : LinearLayout(context, 
 
     private fun initInput() {
         if (mInputHint != null) smartInput.hint = mInputHint
-        smartInput.inputType = mInputType
+        when (mInputType) {
+            InputType.TYPE_TEXT_VARIATION_PASSWORD or InputType.TYPE_CLASS_TEXT -> {
+                smartInput.typeface = Typeface.DEFAULT
+                smartInput.transformationMethod = PasswordTransformationMethod()
+            }
+            else -> smartInput.inputType = mInputType
+        }
     }
 
 }

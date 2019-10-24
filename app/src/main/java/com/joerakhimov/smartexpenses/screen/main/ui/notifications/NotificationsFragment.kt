@@ -1,4 +1,4 @@
-package com.joerakhimov.smartexpenses.main.ui.notifications
+package com.joerakhimov.smartexpenses.screen.main.ui.notifications
 
 import android.os.Bundle
 import android.view.LayoutInflater

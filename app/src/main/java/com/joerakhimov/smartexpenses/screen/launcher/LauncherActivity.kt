@@ -4,7 +4,6 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import com.joerakhimov.smartexpenses.R
-import com.joerakhimov.smartexpenses.main.MainActivity
 import com.joerakhimov.smartexpenses.screen.signin.SignInActivity
 import com.joerakhimov.smartexpenses.screen.signup.SignUpActivity
 import kotlinx.android.synthetic.main.activity_launcher.*

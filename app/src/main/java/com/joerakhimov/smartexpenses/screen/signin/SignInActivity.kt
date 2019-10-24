@@ -1,12 +1,10 @@
 package com.joerakhimov.smartexpenses.screen.signin
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
 import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.base.BaseActivity
-import com.joerakhimov.smartexpenses.main.MainActivity
+import com.joerakhimov.smartexpenses.screen.main.MainActivity
 import kotlinx.android.synthetic.main.activity_sign_in.*
 
 class SignInActivity : BaseActivity() {
