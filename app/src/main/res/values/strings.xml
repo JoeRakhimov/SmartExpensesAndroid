@@ -24,4 +24,9 @@
     <string name="register_now">Register now</string>
     <string name="by_signing_up_i_agree_smart_expenses">By signing up, I agree Smart Expenses’\n<b> Terms and Conditions</b></string>
     <string name="welcome">Welcome</string>
+    <string name="settings">Settings</string>
+    <string name="rates">Rates</string>
+    <string name="my_expenses">My Expenses</string>
+    <string name="social">Social</string>
+    <string name="profile">Profile</string>
 </resources>

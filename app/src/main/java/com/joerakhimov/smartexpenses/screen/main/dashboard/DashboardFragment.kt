@@ -1,4 +1,4 @@
-package com.joerakhimov.smartexpenses.screen.main.ui.dashboard
+package com.joerakhimov.smartexpenses.screen.main.dashboard
 
 import android.os.Bundle
 import android.view.LayoutInflater

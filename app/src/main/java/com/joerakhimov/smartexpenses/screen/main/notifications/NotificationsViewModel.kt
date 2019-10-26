@@ -1,4 +1,4 @@
-package com.joerakhimov.smartexpenses.screen.main.ui.notifications
+package com.joerakhimov.smartexpenses.screen.main.notifications
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

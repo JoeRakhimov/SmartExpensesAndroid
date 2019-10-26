@@ -1,4 +1,4 @@
-package com.joerakhimov.smartexpenses.screen.main.ui.home
+package com.joerakhimov.smartexpenses.screen.main.home
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
