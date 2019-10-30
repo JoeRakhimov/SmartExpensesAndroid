@@ -2,6 +2,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.joerakhimov.smartexpenses">
 
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+
+
     <application
         android:name=".app.App"
         android:allowBackup="true"
@@ -11,14 +14,15 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCjdIRSk7qncK7g0i_QxFNmuHrAKdf88YY" />
+
         <activity
             android:name="com.joerakhimov.smartexpenses.screen.auth.AuthActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
-<!--            <intent-filter>-->
-<!--                <action android:name="android.intent.action.MAIN" />-->
-<!--                <category android:name="android.intent.category.LAUNCHER" />-->
-<!--            </intent-filter>-->
             <nav-graph android:value="@navigation/auth_navigation" />
         </activity>
 
@@ -27,6 +31,15 @@
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
+        </activity>
+
+        <activity
+            android:name="com.joerakhimov.smartexpenses.screen.MapsActivity"
+            android:label="@string/title_activity_maps">
+            <!--            <intent-filter>-->
+            <!--                <action android:name="android.intent.action.MAIN" />-->
+            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
+            <!--            </intent-filter>-->
         </activity>
 
     </application>

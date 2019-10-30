@@ -13,6 +13,9 @@ android {
         versionCode 1
         versionName "0.04"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+
+        buildConfigField 'String', 'BASE_URL', '"https://smarte-flask.herokuapp.com/"'
+
     }
     buildTypes {
         release {
@@ -49,5 +52,15 @@ dependencies {
 
     // Picasso
     implementation "com.squareup.picasso:picasso:2.71828"
+
+    // Retrofit
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-gson:$retrofit_version"
+    implementation "com.jakewharton.retrofit:retrofit2-rxjava2-adapter:$rxjava_adapter_version"
+
+    // Chuck - Http interceptor
+    debugImplementation "com.readystatesoftware.chuck:library:$chuck_version"
+    releaseImplementation "com.readystatesoftware.chuck:library-no-op:$chuck_version"
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
 
 }

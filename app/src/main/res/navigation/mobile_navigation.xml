@@ -12,16 +12,16 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="com.joerakhimov.smartexpenses.screen.main.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
+        android:id="@+id/navigation_expenses"
+        android:name="com.joerakhimov.smartexpenses.screen.main.expenses.ExpensesFragment"
+        android:label="@string/my_expenses"
+        tools:layout="@layout/fragment_expenses" />
 
     <fragment
-        android:id="@+id/navigation_notifications"
-        android:name="com.joerakhimov.smartexpenses.screen.main.notifications.NotificationsFragment"
-        android:label="@string/title_notifications"
-        tools:layout="@layout/fragment_notifications" />
+        android:id="@+id/navigation_social"
+        android:name="com.joerakhimov.smartexpenses.screen.main.social.SocialFragment"
+        android:label="@string/social"
+        tools:layout="@layout/fragment_social" />
 
     <fragment
         android:id="@+id/navigation_rates"

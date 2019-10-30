@@ -23,7 +23,7 @@ class ProfileFragment : BaseFragment() {
 
         val settingsItems = arrayListOf(
             "Notifications",
-            "SelectProfileColor",
+            "Select profile photo",
             "Number of latest spendings",
             "Privacy",
             "Terms and Conditions")
