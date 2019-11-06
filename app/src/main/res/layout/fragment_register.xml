@@ -6,8 +6,7 @@
     android:layout_height="match_parent"
     android:gravity="center_horizontal"
     android:orientation="vertical"
-    android:padding="24dp"
-    tools:context=".screen.auth.signin.SignInActivity">
+    android:padding="24dp">
 
     <TextView
         android:layout_width="wrap_content"

@@ -65,4 +65,6 @@ class SmartInput(context: Context, attrs: AttributeSet) : LinearLayout(context, 
         }
     }
 
+    fun getText() = smartInput.text.toString()
+
 }

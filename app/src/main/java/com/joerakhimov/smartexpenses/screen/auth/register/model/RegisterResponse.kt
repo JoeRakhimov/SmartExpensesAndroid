@@ -11,6 +11,9 @@ data class RegisterResponse(
 	val refreshToken: String? = null,
 
 	@field:SerializedName("message")
-	val message: String? = null
+	val message: String? = null,
+
+	@field:SerializedName("status")
+	val status: Int? = null
 
 )

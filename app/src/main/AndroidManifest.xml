@@ -24,22 +24,14 @@
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <nav-graph android:value="@navigation/auth_navigation" />
-        </activity>
-
-        <activity android:name="com.joerakhimov.smartexpenses.screen.main.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
 
-        <activity
-            android:name="com.joerakhimov.smartexpenses.screen.MapsActivity"
-            android:label="@string/title_activity_maps">
-            <!--            <intent-filter>-->
-            <!--                <action android:name="android.intent.action.MAIN" />-->
-            <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-            <!--            </intent-filter>-->
+        <activity android:name="com.joerakhimov.smartexpenses.screen.main.MainActivity">
+
         </activity>
 
     </application>
