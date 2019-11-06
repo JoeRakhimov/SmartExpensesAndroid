@@ -34,7 +34,6 @@ interface SmartExpensesService {
         }
     }
 
-    @FormUrlEncoded
     @POST("/register")
     fun register(@Body request: RegisterRequest): Single<RegisterResponse>
 

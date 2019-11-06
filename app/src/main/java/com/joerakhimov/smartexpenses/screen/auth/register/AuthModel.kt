@@ -10,7 +10,7 @@ class AuthModel {
         return email.matches(emailPatternRegex)
     }
 
-    fun isPasswordValid(password: String): Boolean? {
+    fun isPasswordValid(password: String): Boolean {
         val passwordPattern = "^(?=.*[A-Za-z])(?=.*\\d)[A-Za-z\\d]{8,}\$"
         val passwordPatternRegex = Regex(passwordPattern)
         return password.matches(passwordPatternRegex)
