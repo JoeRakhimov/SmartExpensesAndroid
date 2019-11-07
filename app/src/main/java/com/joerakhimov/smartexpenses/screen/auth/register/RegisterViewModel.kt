@@ -14,7 +14,8 @@ class RegisterViewModel(
     private val schedulerProvider: SchedulerProvider
 ) : ViewModel() {
 
-    internal val toastMessage = SingleLiveEvent<Int>()
+    internal val toastMessage = SingleLiveEvent<Any>()
+    internal val registrationSuccessEvent = SingleLiveEvent<Boolean>()
 
     fun onRegisterButtonClick(email: String, password: String, confirmPassword: String) {
 
@@ -36,17 +37,19 @@ class RegisterViewModel(
             return
         }
 
-        val request = RegisterRequest(email, password)
+        val encryptedPassword = model.toMd5(password)
+
+        val request = RegisterRequest(email, encryptedPassword)
         repository.register(request)
             .subscribeOn(schedulerProvider.io)
             .observeOn(schedulerProvider.ui)
             .subscribe ({
-
+                if(it.status==0) {}
+                else toastMessage.value = it.message
             },{
-                toastMessage.value = R.string.something_went_wrong
+                toastMessage.value = it.message
             })
 
     }
-
 
 }

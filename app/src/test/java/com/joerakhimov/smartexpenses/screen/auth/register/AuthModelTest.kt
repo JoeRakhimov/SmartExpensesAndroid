@@ -122,4 +122,12 @@ class AuthModelTest {
         assertThat(result, `is`(expected))
     }
 
+    @Test
+    fun encryptToMd5_normalText_correctMd5Returned(){
+        val text = "testpassword"
+        val result = SUT.toMd5(text)
+        val expected = "e16b2ab8d12314bf4efbd6203906ea6c"
+        assertThat(result, `is`(expected))
+    }
+
 }
