@@ -1,32 +1,28 @@
-package com.joerakhimov.smartexpenses.screen.auth.register
+package com.joerakhimov.smartexpenses.screen.auth.login
 
 import androidx.lifecycle.ViewModel
 import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.data.repository.SmartExpensesRepository
 import com.joerakhimov.smartexpenses.helper.concurrent.SchedulerProvider
 import com.joerakhimov.smartexpenses.helper.mvvm.SingleLiveEvent
+import com.joerakhimov.smartexpenses.screen.auth.login.model.LoginRequest
+import com.joerakhimov.smartexpenses.screen.auth.register.AuthModel
 import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterRequest
+import org.kodein.di.Kodein
+import org.kodein.di.generic.instance
 
-class RegisterViewModel(
-    private val model: AuthModel,
-    private val repository: SmartExpensesRepository,
-    private val schedulerProvider: SchedulerProvider
-) : ViewModel() {
+class LoginViewModel(private val model: AuthModel,
+                     private val repository: SmartExpensesRepository,
+                     private val schedulerProvider: SchedulerProvider): ViewModel() {
 
     internal val toastMessage = SingleLiveEvent<Any>()
-    internal val registrationSuccessEvent = SingleLiveEvent<Boolean>()
+    internal val loginSuccessEvent = SingleLiveEvent<Boolean>()
 
-    fun onRegisterButtonClick(email: String, password: String, confirmPassword: String) {
+    fun onLoginButtonClick(email: String, password: String) {
 
         val isEmailValid = model.isEmailValid(email)
         if (!isEmailValid) {
             toastMessage.value = R.string.email_is_invalid
-            return
-        }
-
-        val arePasswordsAreSame = model.arePasswordsAreSame(password, confirmPassword)
-        if (!arePasswordsAreSame) {
-            toastMessage.value = R.string.passwords_are_not_same
             return
         }
 
@@ -38,17 +34,18 @@ class RegisterViewModel(
 
         val encryptedPassword = model.toMd5(password)
 
-        val request = RegisterRequest(email = email, password = encryptedPassword)
-        repository.register(request)
+        val request = LoginRequest(email = email, password = encryptedPassword)
+        repository.login(request)
             .subscribeOn(schedulerProvider.io)
             .observeOn(schedulerProvider.ui)
             .subscribe({
-                if (it.status == 0) registrationSuccessEvent.value = true
+                if (it.status == 0) loginSuccessEvent.value = true
                 else toastMessage.value = it.message
             }, {
                 toastMessage.value = it.message
             })
 
     }
+
 
 }

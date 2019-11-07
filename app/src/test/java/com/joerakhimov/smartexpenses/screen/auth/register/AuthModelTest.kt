@@ -130,4 +130,31 @@ class AuthModelTest {
         assertThat(result, `is`(expected))
     }
 
+    @Test
+    fun encryptToMd5_empty_correctMd5Returned(){
+        val text = ""
+        val result = SUT.toMd5(text)
+        val expected = "d41d8cd98f00b204e9800998ecf8427e"
+        assertThat(result, `is`(expected))
+    }
+
+    @Test
+    fun encryptToMd5_longText_correctMd5Returned(){
+        val sb = StringBuilder()
+        for(i in 0..10000){
+            sb.append("testpassword")
+        }
+        val result = SUT.toMd5(sb.toString())
+        val expected = "b6e8e6047faf968775a8edeae145ad91"
+        assertThat(result, `is`(expected))
+    }
+
+    @Test
+    fun encryptToMd5_textWithSpecialChars_correctMd5Returned(){
+        val text = "~!@#%^&*()_=+;'/.,?"
+        val result = SUT.toMd5(text)
+        val expected = "022c0bff35aa3d145af80c1e05c71b1d"
+        assertThat(result, `is`(expected))
+    }
+
 }

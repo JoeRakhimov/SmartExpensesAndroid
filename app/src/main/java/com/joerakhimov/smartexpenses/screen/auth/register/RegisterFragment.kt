@@ -7,7 +7,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.base.BaseFragment
-import com.readystatesoftware.chuck.internal.ui.MainActivity
+import com.joerakhimov.smartexpenses.screen.main.MainActivity
 import kotlinx.android.synthetic.main.fragment_register.*
 import org.kodein.di.Kodein
 import org.kodein.di.KodeinAware

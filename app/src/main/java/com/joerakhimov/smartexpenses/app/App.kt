@@ -8,6 +8,7 @@ import com.joerakhimov.smartexpenses.data.repository.SmartExpensesRepository
 import com.joerakhimov.smartexpenses.data.repository.SmartExpensesRepositoryImpl
 import com.joerakhimov.smartexpenses.helper.concurrent.SchedulerProvider
 import com.joerakhimov.smartexpenses.helper.concurrent.SchedulerProviderImpl
+import com.joerakhimov.smartexpenses.screen.auth.login.LoginViewModelFactory
 import com.joerakhimov.smartexpenses.screen.auth.register.AuthModel
 import com.joerakhimov.smartexpenses.screen.auth.register.RegisterViewModelFactory
 import com.joerakhimov.smartexpenses.screen.auth.welcome.WelcomeViewModelFactory
@@ -29,6 +30,7 @@ class App: Application(), KodeinAware {
         bind<SmartExpensesNetworkDataSource>() with singleton { SmartExpensesNetworkDataSourceImpl(instance()) }
         bind<SmartExpensesRepository>() with singleton { SmartExpensesRepositoryImpl(instance()) }
         bind() from provider { RegisterViewModelFactory(instance(), instance(), instance()) }
+        bind() from provider { LoginViewModelFactory(instance(), instance(), instance()) }
     }
 
 }

@@ -32,15 +32,11 @@ class HomeFragment : BaseFragment() {
         recycler_places.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
 
         val places = arrayListOf(
-            R.drawable.budapest_castle_hill,
-            R.drawable.budapest_great_synagogue,
-            R.drawable.budapest_liberty_monument,
-            R.drawable.budapest_memento_park,
-            R.drawable.budapest_national_gallery,
-            R.drawable.budapest_national_museum,
-            R.drawable.budapest_opera_house,
-            R.drawable.budapest_parliament,
-            R.drawable.budapest_terror_house
+            R.drawable.budapest1,
+            R.drawable.budapest2,
+            R.drawable.budapest3,
+            R.drawable.budapest4,
+            R.drawable.budapest5
         )
 
         recycler_places.adapter = PlacesAdapter(places)

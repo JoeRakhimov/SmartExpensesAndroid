@@ -3,6 +3,8 @@ package com.joerakhimov.smartexpenses.data.network
 import android.content.Context
 import com.jakewharton.retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import com.joerakhimov.smartexpenses.BuildConfig
+import com.joerakhimov.smartexpenses.screen.auth.login.model.LoginRequest
+import com.joerakhimov.smartexpenses.screen.auth.login.model.LoginResponse
 import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterRequest
 import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterResponse
 import com.readystatesoftware.chuck.ChuckInterceptor
@@ -36,5 +38,8 @@ interface SmartExpensesService {
 
     @POST("/register")
     fun register(@Body request: RegisterRequest): Single<RegisterResponse>
+
+    @POST("/login")
+    fun login(@Body request: LoginRequest): Single<LoginResponse>
 
 }
