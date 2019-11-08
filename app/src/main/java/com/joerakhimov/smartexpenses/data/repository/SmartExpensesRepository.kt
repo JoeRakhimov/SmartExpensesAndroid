@@ -9,4 +9,11 @@ import io.reactivex.Single
 interface SmartExpensesRepository {
     fun register(registerRequest: RegisterRequest): Single<RegisterResponse>
     fun login(loginRequest: LoginRequest): Single<LoginResponse>
+    fun saveToken(token: String?)
+    fun getToken(): String?
+    fun isUserLoggedIn(): Boolean?
+    fun saveEmail(email: String?)
+    fun getEmail(): String?
+    fun removeToken()
+    fun removeEmail()
 }

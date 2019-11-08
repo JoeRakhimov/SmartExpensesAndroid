@@ -9,24 +9,16 @@ import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.base.BaseFragment
 import com.joerakhimov.smartexpenses.screen.main.MainActivity
 import kotlinx.android.synthetic.main.fragment_register.*
-import org.kodein.di.Kodein
-import org.kodein.di.KodeinAware
-import org.kodein.di.android.x.closestKodein
-import org.kodein.di.generic.instance
 
-class RegisterFragment : BaseFragment(), KodeinAware {
+class RegisterFragment : BaseFragment() {
 
     override fun getLayoutRes() = R.layout.fragment_register
 
     private lateinit var viewModel: RegisterViewModel
 
-    val activityKodein by closestKodein()
-    override val kodein by Kodein.lazy { extend(activityKodein) }
-    private val viewModelFactory: RegisterViewModelFactory by instance()
-
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this, viewModelFactory).get(RegisterViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(RegisterViewModel::class.java)
 
         observeToastMessage()
 

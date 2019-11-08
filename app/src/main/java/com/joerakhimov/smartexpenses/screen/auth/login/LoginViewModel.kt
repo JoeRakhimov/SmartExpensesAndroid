@@ -3,17 +3,30 @@ package com.joerakhimov.smartexpenses.screen.auth.login
 import androidx.lifecycle.ViewModel
 import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.data.repository.SmartExpensesRepository
+import com.joerakhimov.smartexpenses.di.AppComponent
+import com.joerakhimov.smartexpenses.di.Injector
 import com.joerakhimov.smartexpenses.helper.concurrent.SchedulerProvider
 import com.joerakhimov.smartexpenses.helper.mvvm.SingleLiveEvent
 import com.joerakhimov.smartexpenses.screen.auth.login.model.LoginRequest
 import com.joerakhimov.smartexpenses.screen.auth.register.AuthModel
 import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterRequest
-import org.kodein.di.Kodein
-import org.kodein.di.generic.instance
+import javax.inject.Inject
 
-class LoginViewModel(private val model: AuthModel,
-                     private val repository: SmartExpensesRepository,
-                     private val schedulerProvider: SchedulerProvider): ViewModel() {
+
+class LoginViewModel: ViewModel() {
+
+    @Inject
+    lateinit var model: AuthModel
+
+    @Inject
+    lateinit var repository: SmartExpensesRepository
+
+    @Inject
+    lateinit var schedulerProvider: SchedulerProvider
+
+    init {
+        Injector.appComponent.inject(this)
+    }
 
     internal val toastMessage = SingleLiveEvent<Any>()
     internal val loginSuccessEvent = SingleLiveEvent<Boolean>()

@@ -3,15 +3,26 @@ package com.joerakhimov.smartexpenses.screen.auth.register
 import androidx.lifecycle.ViewModel
 import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.data.repository.SmartExpensesRepository
+import com.joerakhimov.smartexpenses.di.Injector
 import com.joerakhimov.smartexpenses.helper.concurrent.SchedulerProvider
 import com.joerakhimov.smartexpenses.helper.mvvm.SingleLiveEvent
 import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterRequest
+import javax.inject.Inject
 
-class RegisterViewModel(
-    private val model: AuthModel,
-    private val repository: SmartExpensesRepository,
-    private val schedulerProvider: SchedulerProvider
-) : ViewModel() {
+class RegisterViewModel: ViewModel() {
+
+    @Inject
+    lateinit var model: AuthModel
+
+    @Inject
+    lateinit var repository: SmartExpensesRepository
+
+    @Inject
+    lateinit var schedulerProvider: SchedulerProvider
+
+    init {
+        Injector.appComponent.inject(this)
+    }
 
     internal val toastMessage = SingleLiveEvent<Any>()
     internal val registrationSuccessEvent = SingleLiveEvent<Boolean>()

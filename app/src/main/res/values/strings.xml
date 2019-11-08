@@ -34,4 +34,5 @@
     <string name="passwords_are_not_same">Passwords are not same</string>
     <string name="password_is_invalid">Password minimum length is 8 and it should contain at least one character and one digit</string>
     <string name="something_went_wrong">something_went_wrong</string>
+    <string name="logout">Logout</string>
 </resources>
