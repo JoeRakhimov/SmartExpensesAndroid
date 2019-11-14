@@ -4,32 +4,56 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.TextView
-import androidx.fragment.app.Fragment
+import android.widget.Toast
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.base.BaseFragment
-import com.joerakhimov.smartexpenses.screen.main.expenses.Expense
+import com.joerakhimov.smartexpenses.databinding.FragmentExpensesBinding
+import com.joerakhimov.smartexpenses.databinding.FragmentHomeBinding
 import com.joerakhimov.smartexpenses.screen.main.expenses.ExpensesAdapter
+import com.joerakhimov.smartexpenses.screen.main.expenses.ExpensesViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
+import kotlinx.android.synthetic.main.fragment_home.recycler_expenses
 
 class HomeFragment : BaseFragment() {
 
     override fun getLayoutRes() = R.layout.fragment_home
 
-    private lateinit var homeViewModel: HomeViewModel
+    private lateinit var viewModel: HomeViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        homeViewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
+        viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater,
+        container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        setHasOptionsMenu(true)
+        val binding = FragmentHomeBinding.inflate(inflater, container, false)
+        viewModel = ViewModelProviders.of(this).get(HomeViewModel::class.java)
+        binding.vm = viewModel
+        binding.lifecycleOwner = this
+        return binding.getRoot()
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        recycler_places.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+        showPlaces()
+
+        observeExpenses()
+        observeToastMessage()
+
+    }
+
+    private fun showPlaces() {
+        recycler_places.layoutManager =
+            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
 
         val places = arrayListOf(
             R.drawable.budapest1,
@@ -40,21 +64,26 @@ class HomeFragment : BaseFragment() {
         )
 
         recycler_places.adapter = PlacesAdapter(places)
+    }
 
+    private fun observeExpenses() {
+        val adapter = ExpensesAdapter()
         recycler_expenses.layoutManager = LinearLayoutManager(context)
+        recycler_expenses.adapter = adapter
+        viewModel.expenses.observe(this, Observer {
+            if (it != null) adapter.updateList(it)
+        })
+    }
 
-        val expenses = arrayListOf(
-            Expense("Potato hotpot", R.drawable.dinner, "1051 Budapest V. ketület Dorotya utca 4,", 1490.0, "HUF"),
-            Expense("Potato hotpot", R.drawable.dinner, "1051 Budapest V. ketület Dorotya utca 4,", 1490.0, "HUF"),
-            Expense("Potato hotpot", R.drawable.dinner, "1051 Budapest V. ketület Dorotya utca 4,", 1490.0, "HUF"),
-            Expense("Potato hotpot", R.drawable.dinner, "1051 Budapest V. ketület Dorotya utca 4,", 1490.0, "HUF"),
-            Expense("Potato hotpot", R.drawable.dinner, "1051 Budapest V. ketület Dorotya utca 4,", 1490.0, "HUF"),
-            Expense("Potato hotpot", R.drawable.dinner, "1051 Budapest V. ketület Dorotya utca 4,", 1490.0, "HUF"),
-            Expense("Potato hotpot", R.drawable.dinner, "1051 Budapest V. ketület Dorotya utca 4,", 1490.0, "HUF")
-        )
-
-        recycler_expenses.adapter = ExpensesAdapter(expenses)
-
+    private fun observeToastMessage() {
+        viewModel.toastMessage.observe(this, Observer { any ->
+            var message = ""
+            when (any) {
+                is Int -> message = getString(any)
+                is String -> message = any
+            }
+            Toast.makeText(context, message, Toast.LENGTH_LONG).show()
+        })
     }
 
 }

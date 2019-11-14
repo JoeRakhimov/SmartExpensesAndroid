@@ -22,8 +22,4 @@ class AppModule(var applicaiton: Application) {
     @Provides
     fun providePrefs(preferencesUtil: PrefsUtil): Prefs = PrefsImpl(preferencesUtil)
 
-//    bind() from provider { WelcomeViewModelFactory() }
-//    bind() from provider { RegisterViewModelFactory(instance(), instance(), instance()) }
-//    bind() from provider { LoginViewModelFactory(instance(), instance(), instance()) }
-
 }

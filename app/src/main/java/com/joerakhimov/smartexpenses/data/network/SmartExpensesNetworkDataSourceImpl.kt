@@ -4,6 +4,7 @@ import com.joerakhimov.smartexpenses.screen.auth.login.model.LoginRequest
 import com.joerakhimov.smartexpenses.screen.auth.login.model.LoginResponse
 import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterRequest
 import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterResponse
+import com.joerakhimov.smartexpenses.screen.main.expenses.model.ExpensesResponse
 import io.reactivex.Single
 
 class SmartExpensesNetworkDataSourceImpl(private val api: SmartExpensesService): SmartExpensesNetworkDataSource {
@@ -14,6 +15,10 @@ class SmartExpensesNetworkDataSourceImpl(private val api: SmartExpensesService):
 
     override fun login(request: LoginRequest): Single<LoginResponse> {
         return api.login(request)
+    }
+
+    override fun getExpenses(): Single<ExpensesResponse> {
+        return api.getExpenses()
     }
 
 }

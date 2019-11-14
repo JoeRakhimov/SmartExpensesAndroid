@@ -17,7 +17,7 @@ import dagger.Provides
 class DataModule {
 
     @Provides
-    fun provideService(context: Context) = SmartExpensesService(context)
+    fun provideService(context: Context, prefs: Prefs) = SmartExpensesService(context, prefs)
 
     @Provides
     fun provideNetworkDataSource(service: SmartExpensesService): SmartExpensesNetworkDataSource = SmartExpensesNetworkDataSourceImpl(service)
