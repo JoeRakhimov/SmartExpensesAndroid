@@ -1,25 +1,49 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:bind="http://schemas.android.com/apk/res-auto">
+    xmlns:app="http://schemas.android.com/apk/res-auto">
 
     <data>
+
+        <import
+            alias="view"
+            type="android.view.View" />
+
         <variable
             name="vm"
-            type="com.joerakhimov.smartexpenses.screen.main.expenses.ExpensesViewModel"/>
+            type="com.joerakhimov.smartexpenses.screen.main.expenses.ExpensesViewModel" />
+
     </data>
 
-    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/recycler_expenses"
+        <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:paddingTop="6dp"
-            android:paddingBottom="6dp"
-            android:clipToPadding="false" />
+            app:onRefreshListener="@{() -> vm.onRefresh()}"
+            app:refreshing="@{vm.isLoading}">
 
-    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/recycler_expenses"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:clipToPadding="false"
+                android:visibility="@{vm.isLoading ? view.GONE : view.VISIBLE}"
+                android:paddingTop="6dp"
+                android:paddingBottom="6dp" />
+
+        </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/buttonAdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentBottom="true"
+            android:src="@drawable/ic_add_white_24dp"
+            android:layout_margin="16dp"/>
+
+    </RelativeLayout>
 
 </layout>

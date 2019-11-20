@@ -7,7 +7,10 @@ import com.joerakhimov.smartexpenses.screen.auth.login.model.LoginRequest
 import com.joerakhimov.smartexpenses.screen.auth.login.model.LoginResponse
 import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterRequest
 import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterResponse
+import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseRequest
+import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.expenses.model.ExpensesResponse
+import com.joerakhimov.smartexpenses.screen.main.home.model.RecentExpensesResponse
 import io.reactivex.Single
 
 class SmartExpensesRepositoryImpl(
@@ -56,8 +59,15 @@ class SmartExpensesRepositoryImpl(
         prefs.removeEmail()
     }
 
+    override fun getRecentExpenses(amount: Int): Single<RecentExpensesResponse> {
+        return networkDataSource.getRecentExpenses(amount)
+    }
+
     override fun getExpenses(): Single<ExpensesResponse> {
         return networkDataSource.getExpenses()
     }
 
+    override fun addExpense(addExpenseRequest: AddExpenseRequest): Single<AddExpenseResponse> {
+        return networkDataSource.addExpense(addExpenseRequest)
+    }
 }

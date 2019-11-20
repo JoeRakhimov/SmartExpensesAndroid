@@ -35,4 +35,29 @@
     <string name="password_is_invalid">Password minimum length is 8 and it should contain at least one character and one digit</string>
     <string name="something_went_wrong">something_went_wrong</string>
     <string name="logout">Logout</string>
+    <string name="name">Name</string>
+    <string name="amount">Amount</string>
+    <string name="save">Save</string>
+    <string name="select_category">Select category</string>
+    <string name="expense_name_is_invalid">Expense name should not be empty</string>
+    <string name="category_not_selected">Category not selected</string>
+    <string name="amount_should_be_more_than_0">Amount should be more than 0</string>
+    <string name="service_not_available">Service not available</string>
+    <string name="invalid_lat_long_used">Invalid latitude, longitude used</string>
+    <string name="no_address_found">No address is used</string>
+    <string name="address_found">Address found</string>
+    <string name="no_geocoder_available">No geocoder available</string>
+
+    <string-array name="categories">
+        <item>Restaurant</item>
+        <item>Tickets</item>
+        <item>Museum</item>
+        <item>Hotel</item>
+        <item>Cash</item>
+        <item>Shopping</item>
+        <item>Gas</item>
+        <item>Travel</item>
+        <item>Other</item>
+    </string-array>
+
 </resources>

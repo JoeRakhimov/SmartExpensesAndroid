@@ -14,4 +14,8 @@
         <attr name="android:inputType" />
     </declare-styleable>
 
+    <declare-styleable name="SmartSpinner">
+        <attr name="smartSpinnerLabel" format="string"/>
+    </declare-styleable>
+
 </resources>

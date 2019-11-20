@@ -10,12 +10,12 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.base.BaseFragment
-import com.joerakhimov.smartexpenses.databinding.FragmentExpensesBinding
 import com.joerakhimov.smartexpenses.databinding.FragmentHomeBinding
 import com.joerakhimov.smartexpenses.screen.main.expenses.ExpensesAdapter
-import com.joerakhimov.smartexpenses.screen.main.expenses.ExpensesViewModel
 import kotlinx.android.synthetic.main.fragment_home.*
 import kotlinx.android.synthetic.main.fragment_home.recycler_expenses
+import com.joerakhimov.smartexpenses.screen.main.addexpense.AddExpenseFragment
+
 
 class HomeFragment : BaseFragment() {
 
@@ -44,26 +44,31 @@ class HomeFragment : BaseFragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        showPlaces()
-
+        observeImages()
         observeExpenses()
         observeToastMessage()
 
+        buttonAdd.setOnClickListener {
+            showAddExpenseDialog()
+        }
+
+        viewModel.getExpenses()
+
     }
 
-    private fun showPlaces() {
-        recycler_places.layoutManager =
-            LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false);
+    private fun showAddExpenseDialog(){
+        val ft = fragmentManager!!.beginTransaction()
+        val newFragment = AddExpenseFragment.newInstance()
+        newFragment.show(ft, "dialog")
+    }
 
-        val places = arrayListOf(
-            R.drawable.budapest1,
-            R.drawable.budapest2,
-            R.drawable.budapest3,
-            R.drawable.budapest4,
-            R.drawable.budapest5
-        )
-
-        recycler_places.adapter = PlacesAdapter(places)
+    private fun observeImages() {
+        val adapter = PlacesAdapter()
+        recycler_places.layoutManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
+        recycler_places.adapter = adapter
+        viewModel.images.observe(this, Observer {
+            if (it != null) adapter.updateList(it)
+        })
     }
 
     private fun observeExpenses() {

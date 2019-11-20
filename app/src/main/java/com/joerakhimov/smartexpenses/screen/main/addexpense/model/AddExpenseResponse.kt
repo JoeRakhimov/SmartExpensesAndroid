@@ -1,17 +1,17 @@
-package com.joerakhimov.smartexpenses.screen.main.expenses.model
+package com.joerakhimov.smartexpenses.screen.main.addexpense.model
 
 import com.google.gson.annotations.SerializedName
 import com.joerakhimov.smartexpenses.screen.main.home.model.ExpensesItem
 
-data class ExpensesResponse(
+class AddExpenseResponse(
 
-    @field:SerializedName("expenses")
-    val expenses: List<ExpensesItem?>? = null,
+    @field:SerializedName("expense")
+    val expenses: ExpensesItem? = null,
 
     @field:SerializedName("status")
     val status: Int? = null,
 
     @field:SerializedName("message")
-    val message: Int? = null
+    val message: String? = null
 
 )

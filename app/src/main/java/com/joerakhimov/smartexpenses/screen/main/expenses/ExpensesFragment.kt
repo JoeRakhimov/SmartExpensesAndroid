@@ -12,8 +12,12 @@ import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.base.BaseFragment
 import com.joerakhimov.smartexpenses.databinding.FragmentExpensesBinding
 import com.joerakhimov.smartexpenses.databinding.FragmentProfileBinding
+import com.joerakhimov.smartexpenses.screen.main.addexpense.AddExpenseFragment
 import com.joerakhimov.smartexpenses.screen.main.profile.ProfileViewModel
 import kotlinx.android.synthetic.main.fragment_expenses.*
+import kotlinx.android.synthetic.main.fragment_expenses.buttonAdd
+import kotlinx.android.synthetic.main.fragment_expenses.recycler_expenses
+import kotlinx.android.synthetic.main.fragment_home.*
 
 class ExpensesFragment : BaseFragment(){
 
@@ -44,7 +48,20 @@ class ExpensesFragment : BaseFragment(){
 
         observeExpenses()
         observeToastMessage()
+        initAddButton()
 
+    }
+
+    private fun showAddExpenseDialog(){
+        val ft = fragmentManager!!.beginTransaction()
+        val newFragment = AddExpenseFragment.newInstance()
+        newFragment.show(ft, "dialog")
+    }
+
+    private fun initAddButton() {
+        buttonAdd.setOnClickListener {
+            showAddExpenseDialog()
+        }
     }
 
     private fun observeExpenses() {

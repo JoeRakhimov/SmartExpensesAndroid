@@ -10,7 +10,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
-        versionName "0.07"
+        versionName "0.08"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField 'String', 'BASE_URL', '"https://smarte-flask.herokuapp.com/"'
@@ -73,11 +73,24 @@ dependencies {
     implementation "io.reactivex.rxjava2:rxandroid:$rxandroid_version"
 
     // Maps
-    implementation "com.google.android.gms:play-services-maps:$google_maps_version"
+    implementation "com.google.android.gms:play-services-maps:$play_services_version"
+    implementation "com.google.android.gms:play-services-gcm:$play_services_version"
+    implementation "com.google.android.gms:play-services-location:$play_services_version"
 
     // Dagger 2
     implementation "com.google.dagger:dagger:$dagger_version"
     kapt "com.google.dagger:dagger-compiler:$dagger_version"
     implementation "com.google.dagger:dagger-android-support:$dagger_version"
+
+    // EventBus
+    implementation "org.greenrobot:eventbus:$eventbus_version"
+
+    // Location
+    implementation "io.nlopez.smartlocation:rx:$smart_location_version"
+
+    // Dexter
+    implementation "com.karumi:dexter:$dexter_version"
+
+
 
 }

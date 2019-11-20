@@ -8,16 +8,16 @@ import com.joerakhimov.smartexpenses.screen.auth.login.model.LoginRequest
 import com.joerakhimov.smartexpenses.screen.auth.login.model.LoginResponse
 import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterRequest
 import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterResponse
+import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseRequest
+import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.expenses.model.ExpensesResponse
+import com.joerakhimov.smartexpenses.screen.main.home.model.RecentExpensesResponse
 import com.readystatesoftware.chuck.ChuckInterceptor
 import io.reactivex.Single
 import okhttp3.OkHttpClient
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import retrofit2.http.Body
-import retrofit2.http.FormUrlEncoded
-import retrofit2.http.GET
-import retrofit2.http.POST
+import retrofit2.http.*
 
 interface SmartExpensesService {
 
@@ -46,7 +46,13 @@ interface SmartExpensesService {
     @POST("/login")
     fun login(@Body request: LoginRequest): Single<LoginResponse>
 
+    @GET("expense/recent/{amount}")
+    fun getRecentExpenses(@Path("amount") amount: Int = 5): Single<RecentExpensesResponse>
+
     @GET("/expense/all")
     fun getExpenses(): Single<ExpensesResponse>
+
+    @POST("/expense/add")
+    fun addExpense(@Body addExpenseRequest: AddExpenseRequest): Single<AddExpenseResponse>
 
 }

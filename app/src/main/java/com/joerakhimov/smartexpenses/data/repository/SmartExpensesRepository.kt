@@ -4,7 +4,10 @@ import com.joerakhimov.smartexpenses.screen.auth.login.model.LoginRequest
 import com.joerakhimov.smartexpenses.screen.auth.login.model.LoginResponse
 import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterRequest
 import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterResponse
+import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseRequest
+import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.expenses.model.ExpensesResponse
+import com.joerakhimov.smartexpenses.screen.main.home.model.RecentExpensesResponse
 import io.reactivex.Single
 
 interface SmartExpensesRepository {
@@ -17,5 +20,7 @@ interface SmartExpensesRepository {
     fun getEmail(): String?
     fun removeToken()
     fun removeEmail()
+    fun getRecentExpenses(amount: Int): Single<RecentExpensesResponse>
     fun getExpenses(): Single<ExpensesResponse>
+    fun addExpense(addExpenseRequest: AddExpenseRequest): Single<AddExpenseResponse>
 }

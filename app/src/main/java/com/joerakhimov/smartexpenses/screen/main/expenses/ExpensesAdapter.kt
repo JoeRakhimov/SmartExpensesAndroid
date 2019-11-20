@@ -2,7 +2,7 @@ package com.joerakhimov.smartexpenses.screen.main.expenses
 
 import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.base.BaseRecyclerAdapter
-import com.joerakhimov.smartexpenses.screen.main.expenses.model.ExpensesItem
+import com.joerakhimov.smartexpenses.screen.main.home.model.ExpensesItem
 import kotlinx.android.synthetic.main.listitem_expense.view.*
 
 class ExpensesAdapter(private val expensesList: MutableList<ExpensesItem?> = mutableListOf<ExpensesItem?>()): BaseRecyclerAdapter(expensesList) {
