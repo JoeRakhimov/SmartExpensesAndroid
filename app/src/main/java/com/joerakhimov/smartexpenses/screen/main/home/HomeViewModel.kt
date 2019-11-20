@@ -1,6 +1,7 @@
 package com.joerakhimov.smartexpenses.screen.main.home
 
 import androidx.lifecycle.MutableLiveData
+import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.base.BaseViewModel
 import com.joerakhimov.smartexpenses.data.repository.SmartExpensesRepository
 import com.joerakhimov.smartexpenses.di.Injector
@@ -47,6 +48,21 @@ class HomeViewModel : BaseViewModel() {
                 if (it.status == 0){
                     expenses.value = it.expenses?.expenses
                     images.value = it.expenses?.images
+                }
+                else toastMessage.value = it.message
+            }, {
+                toastMessage.value = it.message
+            })
+    }
+
+    fun deleteExpense(expenseId: Int?) {
+        repository.deleteExpense(expenseId)
+            .subscribeOn(schedulerProvider.io)
+            .observeOn(schedulerProvider.ui)
+            .subscribe({
+                if (it.status == 0){
+                    toastMessage.value = R.string.expense_deleted_successfully
+                    getExpenses()
                 }
                 else toastMessage.value = it.message
             }, {

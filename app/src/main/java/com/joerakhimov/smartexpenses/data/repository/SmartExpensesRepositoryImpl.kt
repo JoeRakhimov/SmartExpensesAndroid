@@ -10,7 +10,9 @@ import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterResponse
 import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseRequest
 import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.expenses.model.ExpensesResponse
+import com.joerakhimov.smartexpenses.screen.main.home.model.DeleteExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.RecentExpensesResponse
+import com.joerakhimov.smartexpenses.screen.main.social.model.LocationsResponse
 import io.reactivex.Single
 
 class SmartExpensesRepositoryImpl(
@@ -70,4 +72,13 @@ class SmartExpensesRepositoryImpl(
     override fun addExpense(addExpenseRequest: AddExpenseRequest): Single<AddExpenseResponse> {
         return networkDataSource.addExpense(addExpenseRequest)
     }
+
+    override fun deleteExpense(expenseId: Int?): Single<DeleteExpenseResponse> {
+        return networkDataSource.deleteExpense(expenseId)
+    }
+
+    override fun getLocations(): Single<LocationsResponse> {
+        return networkDataSource.getLocations()
+    }
+
 }

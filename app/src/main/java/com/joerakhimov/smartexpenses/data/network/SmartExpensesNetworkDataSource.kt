@@ -7,7 +7,9 @@ import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterResponse
 import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseRequest
 import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.expenses.model.ExpensesResponse
+import com.joerakhimov.smartexpenses.screen.main.home.model.DeleteExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.RecentExpensesResponse
+import com.joerakhimov.smartexpenses.screen.main.social.model.LocationsResponse
 import io.reactivex.Single
 
 interface SmartExpensesNetworkDataSource {
@@ -17,5 +19,7 @@ interface SmartExpensesNetworkDataSource {
     fun getRecentExpenses(amount: Int): Single<RecentExpensesResponse>
     fun getExpenses(): Single<ExpensesResponse>
     fun addExpense(addExpenseRequest: AddExpenseRequest): Single<AddExpenseResponse>
+    fun deleteExpense(expenseId: Int?): Single<DeleteExpenseResponse>
+    fun getLocations(): Single<LocationsResponse>
 
 }

@@ -11,7 +11,9 @@ import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterResponse
 import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseRequest
 import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.expenses.model.ExpensesResponse
+import com.joerakhimov.smartexpenses.screen.main.home.model.DeleteExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.RecentExpensesResponse
+import com.joerakhimov.smartexpenses.screen.main.social.model.LocationsResponse
 import com.readystatesoftware.chuck.ChuckInterceptor
 import io.reactivex.Single
 import okhttp3.OkHttpClient
@@ -54,5 +56,11 @@ interface SmartExpensesService {
 
     @POST("/expense/add")
     fun addExpense(@Body addExpenseRequest: AddExpenseRequest): Single<AddExpenseResponse>
+
+    @DELETE("/expense/delete/{id}")
+    fun deleteExpense(@Path("id") expenseId: Int?): Single<DeleteExpenseResponse>
+
+    @GET("/expense/get-locations")
+    fun getLocations(): Single<LocationsResponse>
 
 }

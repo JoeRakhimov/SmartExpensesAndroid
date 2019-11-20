@@ -1,6 +1,7 @@
 package com.joerakhimov.smartexpenses.screen.main.expenses
 
 import androidx.lifecycle.MutableLiveData
+import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.base.BaseViewModel
 import com.joerakhimov.smartexpenses.data.repository.SmartExpensesRepository
 import com.joerakhimov.smartexpenses.di.Injector
@@ -36,7 +37,7 @@ class ExpensesViewModel : BaseViewModel() {
         getExpenses()
     }
 
-    fun getExpenses(){
+    private fun getExpenses(){
         repository.getExpenses()
             .subscribeOn(schedulerProvider.io)
             .observeOn(schedulerProvider.ui)
@@ -53,6 +54,21 @@ class ExpensesViewModel : BaseViewModel() {
     override fun onCleared() {
         super.onCleared()
         EventBus.getDefault().unregister(this)
+    }
+
+    fun deleteExpense(expenseId: Int?) {
+        repository.deleteExpense(expenseId)
+            .subscribeOn(schedulerProvider.io)
+            .observeOn(schedulerProvider.ui)
+            .subscribe({
+                if (it.status == 0){
+                    toastMessage.value = R.string.expense_deleted_successfully
+                    getExpenses()
+                }
+                else toastMessage.value = it.message
+            }, {
+                toastMessage.value = it.message
+            })
     }
 
 }

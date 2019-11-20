@@ -76,6 +76,7 @@ dependencies {
     implementation "com.google.android.gms:play-services-maps:$play_services_version"
     implementation "com.google.android.gms:play-services-gcm:$play_services_version"
     implementation "com.google.android.gms:play-services-location:$play_services_version"
+    implementation 'com.google.maps.android:android-maps-utils:0.3+'
 
     // Dagger 2
     implementation "com.google.dagger:dagger:$dagger_version"
@@ -90,7 +91,5 @@ dependencies {
 
     // Dexter
     implementation "com.karumi:dexter:$dexter_version"
-
-
 
 }

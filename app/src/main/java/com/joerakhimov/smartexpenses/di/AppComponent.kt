@@ -9,6 +9,7 @@ import com.joerakhimov.smartexpenses.screen.main.addexpense.AddExpenseViewModel
 import com.joerakhimov.smartexpenses.screen.main.expenses.ExpensesViewModel
 import com.joerakhimov.smartexpenses.screen.main.home.HomeViewModel
 import com.joerakhimov.smartexpenses.screen.main.profile.ProfileViewModel
+import com.joerakhimov.smartexpenses.screen.main.social.SocialViewModel
 import com.joerakhimov.smartexpenses.view.spinner.SmartSpinner
 import dagger.Component
 import javax.inject.Singleton
@@ -25,4 +26,5 @@ interface AppComponent {
     fun inject(smartSpinner: SmartSpinner)
     fun inject(viewModel: AddExpenseViewModel)
     fun inject(fragment: AddExpenseFragment)
+    fun inject(viewModel: SocialViewModel)
 }

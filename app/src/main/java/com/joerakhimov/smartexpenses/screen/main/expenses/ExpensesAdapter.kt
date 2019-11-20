@@ -2,8 +2,10 @@ package com.joerakhimov.smartexpenses.screen.main.expenses
 
 import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.base.BaseRecyclerAdapter
+import com.joerakhimov.smartexpenses.events.ExpenseLongClickEvent
 import com.joerakhimov.smartexpenses.screen.main.home.model.ExpensesItem
 import kotlinx.android.synthetic.main.listitem_expense.view.*
+import org.greenrobot.eventbus.EventBus
 
 class ExpensesAdapter(private val expensesList: MutableList<ExpensesItem?> = mutableListOf<ExpensesItem?>()): BaseRecyclerAdapter(expensesList) {
 
@@ -17,6 +19,11 @@ class ExpensesAdapter(private val expensesList: MutableList<ExpensesItem?> = mut
         holder.view.image_icon.setImageResource(R.drawable.dinner)
         holder.view.text_address.text = expense?.address
         holder.view.text_amount.text = "${expense?.value} ${expense?.currency}"
+
+        holder.view.setOnLongClickListener {
+            EventBus.getDefault().post(ExpenseLongClickEvent(expense?.id))
+            return@setOnLongClickListener true
+        }
 
     }
 
