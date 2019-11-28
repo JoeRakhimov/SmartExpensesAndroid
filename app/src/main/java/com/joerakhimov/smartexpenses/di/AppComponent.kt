@@ -8,6 +8,7 @@ import com.joerakhimov.smartexpenses.screen.main.addexpense.AddExpenseFragment
 import com.joerakhimov.smartexpenses.screen.main.addexpense.AddExpenseViewModel
 import com.joerakhimov.smartexpenses.screen.main.expenses.ExpensesViewModel
 import com.joerakhimov.smartexpenses.screen.main.home.HomeViewModel
+import com.joerakhimov.smartexpenses.screen.main.profile.ProfileFragment
 import com.joerakhimov.smartexpenses.screen.main.profile.ProfileViewModel
 import com.joerakhimov.smartexpenses.screen.main.social.SocialFragment
 import com.joerakhimov.smartexpenses.screen.main.social.SocialViewModel
@@ -29,4 +30,5 @@ interface AppComponent {
     fun inject(fragment: AddExpenseFragment)
     fun inject(viewModel: SocialViewModel)
     fun inject(fragment: SocialFragment)
+    fun inject(fragment: ProfileFragment)
 }

@@ -62,7 +62,7 @@ class SocialFragment : BaseFragment(), OnMapReadyCallback {
             if(location!=null){
                 buttonNavigation.isVisible = true
                 buttonNavigation.setOnClickListener {
-                    mMap.animateCamera(CameraUpdateFactory.newLatLng(LatLng(location.latitude, location.longitude)))
+                    mMap.animateCamera(CameraUpdateFactory.newLatLngZoom(LatLng(location.latitude, location.longitude), 13F))
                 }
             } else {
                 buttonNavigation.isVisible = false

@@ -52,6 +52,14 @@
     <string name="cancel">Cancel</string>
     <string name="delete">Delete</string>
     <string name="expense_deleted_successfully">Expense deleted successfully</string>
+    <string name="total_spendings">Total spendings</string>
+    <string name="notifications">Notifications</string>
+    <string name="number_of_latest_spendings">Number of latest spendings</string>
+    <string name="privacy">Privacy</string>
+    <string name="terms_and_conditions">Terms and Conditions</string>
+    <string name="set_profile_color">Set profile color</string>
+    <string name="choose_profile_color">Choose color</string>
+    <string name="select_picture">Select picture</string>
 
     <string-array name="categories">
         <item>Restaurant</item>

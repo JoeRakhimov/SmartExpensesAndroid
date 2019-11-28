@@ -20,11 +20,20 @@ inline fun <reified T : Activity> Context.startClearActivity() {
     this.startActivity(intent)
 }
 
+inline fun Context.startActivityToOpenUrlInBrowser(url: String?) {
+    val browserIntent = newIntentToOpenUrlInBrowser(url)
+    if (browserIntent == null) return
+    browserIntent.addCategory(Intent.CATEGORY_BROWSABLE);
+    try {
+        startActivity(browserIntent)
+    } catch (e: Exception) {
+    }
+}
+
 fun newIntentToOpenUrlInBrowser(url: String?): Intent? {
     if (url == null || url!!.isEmpty()) return null
     var fullUrl = url
     if (!url.startsWith("http://") && !url.startsWith("https://"))
         fullUrl = "http://$url"
-    val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse(fullUrl))
-    return browserIntent;
+    return Intent(Intent.ACTION_VIEW, Uri.parse(fullUrl));
 }

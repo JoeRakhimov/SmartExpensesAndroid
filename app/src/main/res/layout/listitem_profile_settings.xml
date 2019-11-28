@@ -11,13 +11,29 @@
         android:layout_height="1dp"
         android:background="#d8d8d8" />
 
-    <TextView
-        android:id="@+id/text_settings_item"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="12dp"
         android:layout_marginBottom="12dp"
-        android:textColor="#2e2727"
-        android:textSize="24sp" />
+        android:orientation="horizontal"
+        android:gravity="center_vertical">
+
+        <TextView
+            android:id="@+id/text_settings_item"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:textColor="#2e2727"
+            android:textSize="24sp" />
+
+        <ImageView
+            android:id="@+id/image_expand_button"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:src="@drawable/expand_button"
+            android:visibility="gone"/>
+
+    </LinearLayout>
 
 </LinearLayout>

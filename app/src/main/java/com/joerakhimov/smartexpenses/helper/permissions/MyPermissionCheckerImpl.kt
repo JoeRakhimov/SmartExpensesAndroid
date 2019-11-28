@@ -14,4 +14,10 @@ class MyPermissionCheckerImpl(var permissionUtil: PermissionUtil): MyPermissionC
         permissionUtil.checkPermission(activity, Manifest.permission.ACCESS_FINE_LOCATION, listener)
     }
 
+    override fun checkWriteExternalStoragePermission(
+        activity: Activity?,
+        listener: MyPermissionListener) {
+        permissionUtil.checkPermission(activity, Manifest.permission.WRITE_EXTERNAL_STORAGE, listener)
+    }
+
 }

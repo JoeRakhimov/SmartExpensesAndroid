@@ -13,6 +13,8 @@ import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseResp
 import com.joerakhimov.smartexpenses.screen.main.expenses.model.ExpensesResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.DeleteExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.RecentExpensesResponse
+import com.joerakhimov.smartexpenses.screen.main.profile.model.LogoutResponse
+import com.joerakhimov.smartexpenses.screen.main.profile.model.ProfileResponse
 import com.joerakhimov.smartexpenses.screen.main.social.model.LocationsResponse
 import com.readystatesoftware.chuck.ChuckInterceptor
 import io.reactivex.Single
@@ -62,5 +64,11 @@ interface SmartExpensesService {
 
     @GET("/expense/get-locations")
     fun getLocations(): Single<LocationsResponse>
+
+    @GET("/user/get-profile")
+    fun getProfile(): Single<ProfileResponse>
+
+    @POST("/logout")
+    fun logout(): Single<LogoutResponse>
 
 }

@@ -9,4 +9,6 @@ interface MyPermissionChecker {
 
     fun checkFineLocationPermission(activity: Activity?, listener: MyPermissionListener)
 
+    fun checkWriteExternalStoragePermission(activity: Activity?, listener: MyPermissionListener)
+
 }

@@ -9,6 +9,8 @@ import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseResp
 import com.joerakhimov.smartexpenses.screen.main.expenses.model.ExpensesResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.DeleteExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.RecentExpensesResponse
+import com.joerakhimov.smartexpenses.screen.main.profile.model.LogoutResponse
+import com.joerakhimov.smartexpenses.screen.main.profile.model.ProfileResponse
 import com.joerakhimov.smartexpenses.screen.main.social.model.LocationsResponse
 import io.reactivex.Single
 
@@ -40,6 +42,14 @@ class SmartExpensesNetworkDataSourceImpl(private val api: SmartExpensesService):
 
     override fun getLocations(): Single<LocationsResponse> {
         return api.getLocations()
+    }
+
+    override fun getProfile(): Single<ProfileResponse> {
+        return api.getProfile()
+    }
+
+    override fun logout(): Single<LogoutResponse> {
+        return api.logout()
     }
 
 }
