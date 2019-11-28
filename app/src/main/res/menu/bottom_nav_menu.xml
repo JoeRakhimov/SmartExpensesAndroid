@@ -17,11 +17,6 @@
         android:title="@string/social" />
 
     <item
-        android:id="@+id/navigation_rates"
-        android:icon="@drawable/ic_attach_money_black_24dp"
-        android:title="@string/rates" />
-
-    <item
         android:id="@+id/navigation_profile"
         android:icon="@drawable/ic_perm_identity_black_24dp"
         android:title="@string/settings" />

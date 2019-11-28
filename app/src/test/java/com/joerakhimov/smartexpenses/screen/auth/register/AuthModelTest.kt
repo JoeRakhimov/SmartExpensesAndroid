@@ -1,9 +1,8 @@
 package com.joerakhimov.smartexpenses.screen.auth.register
 
 import org.hamcrest.core.Is.`is`
+import org.junit.Assert.assertThat
 import org.junit.Before
-
-import org.junit.Assert.*
 import org.junit.Test
 
 class AuthModelTest {
@@ -154,6 +153,41 @@ class AuthModelTest {
         val text = "~!@#%^&*()_=+;'/.,?"
         val result = SUT.toMd5(text)
         val expected = "022c0bff35aa3d145af80c1e05c71b1d"
+        assertThat(result, `is`(expected))
+    }
+
+    @Test
+    fun encryptToSHA256_normalText_correctMd5Returned(){
+        val text = "testpassword"
+        val result = SUT.toSHA256(text)
+        val expected = "9f735e0df9a1ddc702bf0a1a7b83033f9f7153a00c29de82cedadc9957289b05"
+        assertThat(result, `is`(expected))
+    }
+
+    @Test
+    fun encryptToSHA256_empty_correctMd5Returned(){
+        val text = ""
+        val result = SUT.toSHA256(text)
+        val expected = "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        assertThat(result, `is`(expected))
+    }
+
+    @Test
+    fun encryptToSHA256_longText_correctMd5Returned(){
+        val sb = StringBuilder()
+        for(i in 0..10000){
+            sb.append("testpassword")
+        }
+        val result = SUT.toSHA256(sb.toString())
+        val expected = "01f32120a888b0115d2dbf4815e03f0416eba0caca98cbff7e170f15b4424115"
+        assertThat(result, `is`(expected))
+    }
+
+    @Test
+    fun encryptToSHA256_textWithSpecialChars_correctMd5Returned(){
+        val text = "~!@#%^&*()_=+;'/.,?"
+        val result = SUT.toSHA256(text)
+        val expected = "5bf049dc44a30b12067f6b9b2129bb366e4053ca9eeeff3d4ea5932a072b5390"
         assertThat(result, `is`(expected))
     }
 

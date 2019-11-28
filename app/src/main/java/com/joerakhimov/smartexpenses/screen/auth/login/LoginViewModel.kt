@@ -3,13 +3,11 @@ package com.joerakhimov.smartexpenses.screen.auth.login
 import androidx.lifecycle.ViewModel
 import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.data.repository.SmartExpensesRepository
-import com.joerakhimov.smartexpenses.di.AppComponent
 import com.joerakhimov.smartexpenses.di.Injector
 import com.joerakhimov.smartexpenses.helper.concurrent.SchedulerProvider
 import com.joerakhimov.smartexpenses.helper.mvvm.SingleLiveEvent
 import com.joerakhimov.smartexpenses.screen.auth.login.model.LoginRequest
 import com.joerakhimov.smartexpenses.screen.auth.register.AuthModel
-import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterRequest
 import javax.inject.Inject
 
 
@@ -45,7 +43,7 @@ class LoginViewModel: ViewModel() {
             return
         }
 
-        val encryptedPassword = model.toMd5(password)
+        val encryptedPassword = model.toSHA256(password)
 
         val request = LoginRequest(email = email, password = encryptedPassword)
         repository.login(request)

@@ -47,7 +47,7 @@ class RegisterViewModel: ViewModel() {
             return
         }
 
-        val encryptedPassword = model.toMd5(password)
+        val encryptedPassword = model.toSHA256(password)
 
         val request = RegisterRequest(email = email, password = encryptedPassword)
         repository.register(request)

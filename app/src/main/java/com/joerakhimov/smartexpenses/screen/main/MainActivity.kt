@@ -24,7 +24,6 @@ class MainActivity : BaseActivity() {
                 R.id.navigation_home,
                 R.id.navigation_expenses,
                 R.id.navigation_social,
-                R.id.navigation_rates,
                 R.id.navigation_profile
             )
         )

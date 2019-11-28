@@ -16,13 +16,24 @@ class ExpensesAdapter(private val expensesList: MutableList<ExpensesItem?> = mut
         val expense = expensesList[position]
 
         holder.view.text_title.text = expense?.title
-        holder.view.image_icon.setImageResource(R.drawable.dinner)
         holder.view.text_address.text = expense?.address
         holder.view.text_amount.text = "${expense?.value} ${expense?.currency}"
 
         holder.view.setOnLongClickListener {
             EventBus.getDefault().post(ExpenseLongClickEvent(expense?.id))
             return@setOnLongClickListener true
+        }
+
+        when(expense?.categoryID){
+            0->holder.view.image_icon.setImageResource(R.drawable.category_restaurant)
+            1->holder.view.image_icon.setImageResource(R.drawable.category_tickets)
+            2->holder.view.image_icon.setImageResource(R.drawable.category_museum)
+            3->holder.view.image_icon.setImageResource(R.drawable.category_hotel)
+            4->holder.view.image_icon.setImageResource(R.drawable.category_cash)
+            5->holder.view.image_icon.setImageResource(R.drawable.category_shopping)
+            6->holder.view.image_icon.setImageResource(R.drawable.category_gas)
+            7->holder.view.image_icon.setImageResource(R.drawable.category_travel)
+            8->holder.view.image_icon.setImageResource(R.drawable.category_other)
         }
 
     }
