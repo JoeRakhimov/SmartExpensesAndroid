@@ -6,6 +6,7 @@ import com.joerakhimov.smartexpenses.data.repository.SmartExpensesRepository
 import com.joerakhimov.smartexpenses.di.Injector
 import com.joerakhimov.smartexpenses.helper.concurrent.SchedulerProvider
 import com.joerakhimov.smartexpenses.screen.main.profile.model.ProfileInfo
+import com.joerakhimov.smartexpenses.screen.main.profile.model.UpdateProfileRequest
 import javax.inject.Inject
 
 class ProfileViewModel : BaseViewModel() {
@@ -65,7 +66,21 @@ class ProfileViewModel : BaseViewModel() {
     }
 
     fun onColorSelection(selectedColor: String) {
-
+        val request = UpdateProfileRequest(
+            color = selectedColor
+        )
+        repository.updateProfile(request)
+            .subscribeOn(schedulerProvider.io)
+            .observeOn(schedulerProvider.ui)
+            .doOnSubscribe { isLoading.set(true) }
+            .doFinally { isLoading.set(false) }
+            .subscribe({
+                if (it.status == 0) {
+                    getProfileInfo()
+                } else toastMessage.value = it.message
+            }, {
+                toastMessage.value = it.message
+            })
     }
 
 }

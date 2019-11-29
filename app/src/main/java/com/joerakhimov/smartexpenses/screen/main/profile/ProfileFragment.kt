@@ -2,10 +2,9 @@ package com.joerakhimov.smartexpenses.screen.main.profile
 
 
 import android.content.Intent
-import android.graphics.BitmapFactory
+import android.graphics.Color
 import android.os.Bundle
 import android.view.*
-import android.widget.ImageView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.Observable
@@ -93,10 +92,9 @@ class ProfileFragment : BaseFragment() {
         recycler_profile_settings.layoutManager = LinearLayoutManager(context)
 
         val items = arrayListOf(
-            ProfileScreenListItem(com.joerakhimov.smartexpenses.R.string.notifications),
             ProfileScreenListItem(com.joerakhimov.smartexpenses.R.string.number_of_latest_spendings),
             ProfileScreenListItem(com.joerakhimov.smartexpenses.R.string.set_profile_color, View.OnClickListener {
-                if(profileInfo.color!=null) showColorPickerDialog(profileInfo.color)
+                if(profileInfo.color!=null) showColorPickerDialog(profileInfo.color!!)
             }),
             ProfileScreenListItem(
                 com.joerakhimov.smartexpenses.R.string.privacy,
@@ -114,8 +112,8 @@ class ProfileFragment : BaseFragment() {
         ColorPickerDialogBuilder
             .with(context)
             .setTitle(R.string.choose_profile_color)
-            .initialColor(Integer.decode(hex))
-            .wheelType(ColorPickerView.WHEEL_TYPE.FLOWER)
+            .initialColor(Color.parseColor(hex))
+            .wheelType(ColorPickerView.WHEEL_TYPE.CIRCLE)
             .density(12)
             .setPositiveButton(R.string.save) { dialog, selectedColor, allColors ->
                 viewModel.onColorSelection("#"+Integer.toHexString(selectedColor))
@@ -161,46 +159,6 @@ class ProfileFragment : BaseFragment() {
             if(REQUEST_CODE_PICK_IMAGE == requestCode){
                 val selectedImage = data?.data
                 Picasso.get().load(selectedImage).transform(CircleTransform()).into(image_profile)
-//                val filePathColumn = arrayOf(MediaStore.Images.Media.DATA)
-//                // Get the cursor
-//                val cursor = activity?.contentResolver?.query(selectedImage, filePathColumn, null, null, null)
-//                // Move to first row
-//                cursor?.moveToFirst()
-//                //Get the column index of MediaStore.Images.Media.DATA
-//                val columnIndex = cursor?.getColumnIndex(filePathColumn[0])
-//                //Gets the String value in the column
-//                val imgDecodableString = cursor?.getString(columnIndex!!)
-//
-//                if(imgDecodableString!=null) setPic(imgDecodableString, image_profile)
-//
-//                cursor?.close()
-            }
-        }
-    }
-
-    private fun setPic(path: String, imageView: ImageView) {
-        imageView.post {
-            // Get the dimensions of the View
-            val targetW: Int = imageView.width
-            val targetH: Int = imageView.height
-
-            val bmOptions = BitmapFactory.Options().apply {
-                // Get the dimensions of the bitmap
-                inJustDecodeBounds = true
-                BitmapFactory.decodeFile(path, this)
-                val photoW: Int = outWidth
-                val photoH: Int = outHeight
-
-                // Determine how much to scale down the image
-                val scaleFactor: Int = Math.min(photoW / targetW, photoH / targetH)
-
-                // Decode the image file into a Bitmap sized to fill the View
-                inJustDecodeBounds = false
-                inSampleSize = scaleFactor
-                inPurgeable = true
-            }
-            BitmapFactory.decodeFile(path, bmOptions)?.also { bitmap ->
-                imageView.setImageBitmap(bitmap)
             }
         }
     }

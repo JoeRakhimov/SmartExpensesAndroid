@@ -12,7 +12,6 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.base.BaseFragment
 import com.joerakhimov.smartexpenses.base.RecyclerItemClickListener
 import com.joerakhimov.smartexpenses.databinding.FragmentExpensesBinding
@@ -23,9 +22,10 @@ import kotlinx.android.synthetic.main.fragment_expenses.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
 
+
 class ExpensesFragment : BaseFragment() {
 
-    override fun getLayoutRes() = R.layout.fragment_expenses
+    override fun getLayoutRes() = com.joerakhimov.smartexpenses.R.layout.fragment_expenses
 
     private lateinit var viewModel: ExpensesViewModel
 
@@ -76,7 +76,7 @@ class ExpensesFragment : BaseFragment() {
             override fun onClick(item: Any?) {
                 if(item is ExpensesItem){
                     var args = bundleOf("id" to item.id)
-                    findNavController().navigate(R.id.navigation_details, args)
+                    findNavController().navigate(com.joerakhimov.smartexpenses.R.id.navigation_details, args)
                 }
             }
         })
@@ -104,14 +104,14 @@ class ExpensesFragment : BaseFragment() {
     private fun showDeleteExpenseDialog(expenseId: Int?) {
         val dialog =
             activity?.let { AlertDialog.Builder(it) }
-            ?.setTitle(R.string.delete_expense)
-            ?.setMessage(R.string.are_you_sure_to_delete_expense)
-            ?.setNegativeButton(R.string.cancel, object: DialogInterface.OnClickListener{
+            ?.setTitle(com.joerakhimov.smartexpenses.R.string.delete_expense)
+            ?.setMessage(com.joerakhimov.smartexpenses.R.string.are_you_sure_to_delete_expense)
+            ?.setNegativeButton(com.joerakhimov.smartexpenses.R.string.cancel, object: DialogInterface.OnClickListener{
                 override fun onClick(dialog: DialogInterface?, which: Int) {
                     dialog?.dismiss()
                 }
             })
-            ?.setPositiveButton(R.string.delete, object: DialogInterface.OnClickListener{
+            ?.setPositiveButton(com.joerakhimov.smartexpenses.R.string.delete, object: DialogInterface.OnClickListener{
                 override fun onClick(dialog: DialogInterface?, which: Int) {
                     viewModel.deleteExpense(expenseId)
                 }

@@ -11,7 +11,7 @@ data class ProfileInfo(
 	val totalSpendings: Double? = null,
 
 	@field:SerializedName("color")
-	val color: String? = null,
+	var color: String? = null,
 
 	@field:SerializedName("user_id")
 	val userId: Int? = null,
