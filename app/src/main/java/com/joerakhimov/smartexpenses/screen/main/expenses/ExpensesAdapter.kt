@@ -2,6 +2,7 @@ package com.joerakhimov.smartexpenses.screen.main.expenses
 
 import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.base.BaseRecyclerAdapter
+import com.joerakhimov.smartexpenses.base.RecyclerItemClickListener
 import com.joerakhimov.smartexpenses.events.ExpenseLongClickEvent
 import com.joerakhimov.smartexpenses.screen.main.home.model.ExpensesItem
 import kotlinx.android.synthetic.main.listitem_expense.view.*
@@ -10,6 +11,8 @@ import org.greenrobot.eventbus.EventBus
 class ExpensesAdapter(private val expensesList: MutableList<ExpensesItem?> = mutableListOf<ExpensesItem?>()): BaseRecyclerAdapter(expensesList) {
 
     override fun getLayoutRes() = R.layout.listitem_expense
+
+    var onItemListener: RecyclerItemClickListener? = null
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
 
@@ -36,12 +39,20 @@ class ExpensesAdapter(private val expensesList: MutableList<ExpensesItem?> = mut
             8->holder.view.image_icon.setImageResource(R.drawable.category_other)
         }
 
+        holder.view.setOnClickListener {
+            onItemListener?.onClick(expense)
+        }
+
     }
 
     fun updateList(items: List<ExpensesItem?>) {
         expensesList.clear()
         expensesList.addAll(items)
         notifyDataSetChanged()
+    }
+
+    fun setClickListener(listener: RecyclerItemClickListener){
+        onItemListener = listener
     }
 
 }

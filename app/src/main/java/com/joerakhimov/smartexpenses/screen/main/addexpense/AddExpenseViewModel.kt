@@ -73,7 +73,8 @@ class AddExpenseViewModel : BaseViewModel() {
             latitude = address?.latitude,
             longitude = address?.longitude,
             address = if(address?.maxAddressLineIndex!=null && address?.maxAddressLineIndex!! >=0) address?.getAddressLine(0) else null,
-            categoryID = categoryId
+            categoryID = categoryId,
+            date = System.currentTimeMillis()/1000
         ))
 
     }

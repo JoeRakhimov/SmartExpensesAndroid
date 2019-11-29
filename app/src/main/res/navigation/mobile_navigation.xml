@@ -35,4 +35,16 @@
         android:label="@string/profile"
         tools:layout="@layout/fragment_profile" />
 
+    <fragment
+        android:id="@+id/navigation_details"
+        android:name="com.joerakhimov.smartexpenses.screen.main.details.DetailsFragment"
+        android:label="@string/details"
+        tools:layout="@layout/details_fragment" >
+
+        <argument
+            android:name="id"
+            app:argType="integer"/>
+
+    </fragment>
+
 </navigation>

@@ -26,6 +26,9 @@ data class AddExpenseRequest(
 	val categoryID: Int? = null,
 
 	@field:SerializedName("longitude")
-	val longitude: Double? = null
+	val longitude: Double? = null,
+
+	@field:SerializedName("date")
+	val date: Long? = null
 
 )

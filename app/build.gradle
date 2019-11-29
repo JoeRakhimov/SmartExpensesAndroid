@@ -10,7 +10,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
-        versionName "0.09"
+        versionName "0.10"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField 'String', 'BASE_URL', '"https://smarte-flask.herokuapp.com/"'

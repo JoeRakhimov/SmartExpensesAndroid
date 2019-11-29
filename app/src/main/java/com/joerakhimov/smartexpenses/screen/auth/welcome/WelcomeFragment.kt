@@ -6,7 +6,6 @@ import android.view.View
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.navigation.fragment.findNavController
-import androidx.navigation.navOptions
 import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.base.BaseFragment
 import com.joerakhimov.smartexpenses.screen.main.MainActivity
@@ -50,15 +49,6 @@ class WelcomeFragment : BaseFragment() {
     private fun initSignInButton() {
         button_sign_in.setOnClickListener {
             findNavController().navigate(R.id.destination_login, null, getNavOptions())
-        }
-    }
-
-    private fun getNavOptions() = navOptions {
-        anim {
-            enter = R.anim.slide_in_bottom
-            exit = R.anim.slide_out_top
-            popEnter = R.anim.slide_in_top
-            popExit = R.anim.slide_out_bottom
         }
     }
 

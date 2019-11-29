@@ -10,6 +10,7 @@ import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterRequest
 import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterResponse
 import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseRequest
 import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseResponse
+import com.joerakhimov.smartexpenses.screen.main.details.model.ExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.expenses.model.ExpensesResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.DeleteExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.RecentExpensesResponse
@@ -58,6 +59,9 @@ interface SmartExpensesService {
 
     @POST("/expense/add")
     fun addExpense(@Body addExpenseRequest: AddExpenseRequest): Single<AddExpenseResponse>
+
+    @GET("/expense/{id}")
+    fun getExpense(@Path("id") id: Int): Single<ExpenseResponse>
 
     @DELETE("/expense/delete/{id}")
     fun deleteExpense(@Path("id") expenseId: Int?): Single<DeleteExpenseResponse>

@@ -5,7 +5,7 @@ import com.google.gson.annotations.SerializedName
 data class ExpensesItem(
 
 	@field:SerializedName("date")
-	val date: String? = null,
+	val date: Long? = null,
 
 	@field:SerializedName("private")
 	val jsonMemberPrivate: Boolean? = null,
@@ -36,4 +36,5 @@ data class ExpensesItem(
 
 	@field:SerializedName("longitude")
 	val longitude: Double? = null
+
 )

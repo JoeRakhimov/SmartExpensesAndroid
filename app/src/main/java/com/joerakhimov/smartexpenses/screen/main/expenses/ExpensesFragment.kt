@@ -7,14 +7,18 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.core.os.bundleOf
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.joerakhimov.smartexpenses.R
 import com.joerakhimov.smartexpenses.base.BaseFragment
+import com.joerakhimov.smartexpenses.base.RecyclerItemClickListener
 import com.joerakhimov.smartexpenses.databinding.FragmentExpensesBinding
 import com.joerakhimov.smartexpenses.events.ExpenseLongClickEvent
 import com.joerakhimov.smartexpenses.screen.main.addexpense.AddExpenseFragment
+import com.joerakhimov.smartexpenses.screen.main.home.model.ExpensesItem
 import kotlinx.android.synthetic.main.fragment_expenses.*
 import org.greenrobot.eventbus.EventBus
 import org.greenrobot.eventbus.Subscribe
@@ -68,6 +72,14 @@ class ExpensesFragment : BaseFragment() {
         val adapter = ExpensesAdapter()
         recycler_expenses.layoutManager = LinearLayoutManager(context)
         recycler_expenses.adapter = adapter
+        adapter.setClickListener(object: RecyclerItemClickListener{
+            override fun onClick(item: Any?) {
+                if(item is ExpensesItem){
+                    var args = bundleOf("id" to item.id)
+                    findNavController().navigate(R.id.navigation_details, args)
+                }
+            }
+        })
         viewModel.expenses.observe(this, Observer {
             if (it != null) adapter.updateList(it)
         })

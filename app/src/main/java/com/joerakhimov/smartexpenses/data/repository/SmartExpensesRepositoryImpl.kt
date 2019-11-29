@@ -9,6 +9,7 @@ import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterRequest
 import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterResponse
 import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseRequest
 import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseResponse
+import com.joerakhimov.smartexpenses.screen.main.details.model.ExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.expenses.model.ExpensesResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.DeleteExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.RecentExpensesResponse
@@ -73,6 +74,10 @@ class SmartExpensesRepositoryImpl(
 
     override fun addExpense(addExpenseRequest: AddExpenseRequest): Single<AddExpenseResponse> {
         return networkDataSource.addExpense(addExpenseRequest)
+    }
+
+    override fun getExpense(id: Int): Single<ExpenseResponse> {
+        return networkDataSource.getExpense(id)
     }
 
     override fun deleteExpense(expenseId: Int?): Single<DeleteExpenseResponse> {

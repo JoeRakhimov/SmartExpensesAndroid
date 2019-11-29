@@ -6,6 +6,7 @@ import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterRequest
 import com.joerakhimov.smartexpenses.screen.auth.register.model.RegisterResponse
 import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseRequest
 import com.joerakhimov.smartexpenses.screen.main.addexpense.model.AddExpenseResponse
+import com.joerakhimov.smartexpenses.screen.main.details.model.ExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.expenses.model.ExpensesResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.DeleteExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.RecentExpensesResponse
@@ -20,6 +21,7 @@ interface SmartExpensesNetworkDataSource {
     fun login(registerRequest: LoginRequest): Single<LoginResponse>
     fun getRecentExpenses(amount: Int): Single<RecentExpensesResponse>
     fun getExpenses(): Single<ExpensesResponse>
+    fun getExpense(id: Int): Single<ExpenseResponse>
     fun addExpense(addExpenseRequest: AddExpenseRequest): Single<AddExpenseResponse>
     fun deleteExpense(expenseId: Int?): Single<DeleteExpenseResponse>
     fun getLocations(): Single<LocationsResponse>
