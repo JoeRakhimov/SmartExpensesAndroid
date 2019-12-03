@@ -3,7 +3,7 @@
     <string name="title_home">Home</string>
     <string name="follow_expenses">Follow expenses</string>
     <string name="from_anywhere">from anywhere</string>
-    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
     <string name="sign_in">Sign in</string>
     <string name="dont_have_an_account">Don’t have an account?</string>
     <string name="sign_up">Sign up</string>
