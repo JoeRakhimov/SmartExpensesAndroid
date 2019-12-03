@@ -39,7 +39,7 @@ class HomeViewModel : BaseViewModel() {
     }
 
     fun getExpenses(){
-        repository.getRecentExpenses(5)
+        repository.getRecentExpenses()
             .subscribeOn(schedulerProvider.io)
             .observeOn(schedulerProvider.ui)
             .doOnSubscribe { isLoading.set(true) }

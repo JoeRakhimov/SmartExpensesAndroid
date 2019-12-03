@@ -10,7 +10,7 @@ android {
         minSdkVersion 21
         targetSdkVersion 28
         versionCode 1
-        versionName "0.11"
+        versionName "0.12"
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
         buildConfigField 'String', 'BASE_URL', '"https://smarte-flask.herokuapp.com/"'
@@ -94,5 +94,8 @@ dependencies {
 
     // Color picker
     implementation 'com.github.QuadFlask:colorpicker:0.0.15'
+
+    // Amount picker dialog
+    implementation 'biz.kasual:materialnumberpicker:1.2.1'
 
 }

@@ -13,10 +13,7 @@ import com.joerakhimov.smartexpenses.screen.main.details.model.ExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.expenses.model.ExpensesResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.DeleteExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.RecentExpensesResponse
-import com.joerakhimov.smartexpenses.screen.main.profile.model.LogoutResponse
-import com.joerakhimov.smartexpenses.screen.main.profile.model.ProfileResponse
-import com.joerakhimov.smartexpenses.screen.main.profile.model.UpdateProfileRequest
-import com.joerakhimov.smartexpenses.screen.main.profile.model.UpdateProfileResponse
+import com.joerakhimov.smartexpenses.screen.main.profile.model.*
 import com.joerakhimov.smartexpenses.screen.main.social.model.LocationsResponse
 import io.reactivex.Single
 
@@ -66,8 +63,8 @@ class SmartExpensesRepositoryImpl(
         prefs.removeEmail()
     }
 
-    override fun getRecentExpenses(amount: Int): Single<RecentExpensesResponse> {
-        return networkDataSource.getRecentExpenses(amount)
+    override fun getRecentExpenses(): Single<RecentExpensesResponse> {
+        return networkDataSource.getRecentExpenses(prefs.getLatestSpendingsAmount())
     }
 
     override fun getExpenses(): Single<ExpensesResponse> {
@@ -100,6 +97,18 @@ class SmartExpensesRepositoryImpl(
 
     override fun logout(): Single<LogoutResponse> {
         return networkDataSource.logout()
+    }
+
+    override fun setLatestSpendingsAmount(amount: Int) {
+        prefs.setLatestSpendingsAmount(amount)
+    }
+
+    override fun getLatestSpendingsAmount(): Int {
+        return prefs.getLatestSpendingsAmount()
+    }
+
+    override fun updatePhoto(request: PhotoRequest): Single<UpdateProfileResponse> {
+        return networkDataSource.updatePhoto(request)
     }
 
 }

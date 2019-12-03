@@ -10,10 +10,7 @@ import com.joerakhimov.smartexpenses.screen.main.details.model.ExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.expenses.model.ExpensesResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.DeleteExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.RecentExpensesResponse
-import com.joerakhimov.smartexpenses.screen.main.profile.model.LogoutResponse
-import com.joerakhimov.smartexpenses.screen.main.profile.model.ProfileResponse
-import com.joerakhimov.smartexpenses.screen.main.profile.model.UpdateProfileRequest
-import com.joerakhimov.smartexpenses.screen.main.profile.model.UpdateProfileResponse
+import com.joerakhimov.smartexpenses.screen.main.profile.model.*
 import com.joerakhimov.smartexpenses.screen.main.social.model.LocationsResponse
 import io.reactivex.Single
 
@@ -27,7 +24,7 @@ interface SmartExpensesRepository {
     fun getEmail(): String?
     fun removeToken()
     fun removeEmail()
-    fun getRecentExpenses(amount: Int): Single<RecentExpensesResponse>
+    fun getRecentExpenses(): Single<RecentExpensesResponse>
     fun getExpenses(): Single<ExpensesResponse>
     fun addExpense(addExpenseRequest: AddExpenseRequest): Single<AddExpenseResponse>
     fun getExpense(id: Int): Single<ExpenseResponse>
@@ -36,4 +33,7 @@ interface SmartExpensesRepository {
     fun getProfile(): Single<ProfileResponse>
     fun logout(): Single<LogoutResponse>
     fun updateProfile(request: UpdateProfileRequest): Single<UpdateProfileResponse>
+    fun setLatestSpendingsAmount(amount: Int)
+    fun getLatestSpendingsAmount(): Int
+    fun updatePhoto(request: PhotoRequest): Single<UpdateProfileResponse>
 }

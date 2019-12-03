@@ -65,17 +65,19 @@ class AddExpenseViewModel : BaseViewModel() {
             return
         }
 
-        addExpense(AddExpenseRequest(
+        val request = AddExpenseRequest(
             title = name,
             jsonMemberPrivate = false,
             currency = "HUF",
             value = amount.toLong(),
-            latitude = address?.latitude,
-            longitude = address?.longitude,
-            address = if(address?.maxAddressLineIndex!=null && address?.maxAddressLineIndex!! >=0) address?.getAddressLine(0) else null,
+            latitude = if(address?.latitude!=null) address?.latitude else 47.497913,
+            longitude = if(address?.longitude!=null) address?.longitude else 19.040236,
+            address = if(address?.maxAddressLineIndex!=null && address?.maxAddressLineIndex!! >=0) address?.getAddressLine(0) else "Budapest",
             categoryID = categoryId,
             date = System.currentTimeMillis()/1000
-        ))
+        )
+
+        addExpense(request)
 
     }
 

@@ -10,10 +10,7 @@ import com.joerakhimov.smartexpenses.screen.main.details.model.ExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.expenses.model.ExpensesResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.DeleteExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.RecentExpensesResponse
-import com.joerakhimov.smartexpenses.screen.main.profile.model.LogoutResponse
-import com.joerakhimov.smartexpenses.screen.main.profile.model.ProfileResponse
-import com.joerakhimov.smartexpenses.screen.main.profile.model.UpdateProfileRequest
-import com.joerakhimov.smartexpenses.screen.main.profile.model.UpdateProfileResponse
+import com.joerakhimov.smartexpenses.screen.main.profile.model.*
 import com.joerakhimov.smartexpenses.screen.main.social.model.LocationsResponse
 import io.reactivex.Single
 
@@ -30,5 +27,6 @@ interface SmartExpensesNetworkDataSource {
     fun getProfile(): Single<ProfileResponse>
     fun logout(): Single<LogoutResponse>
     fun updateProfile(request: UpdateProfileRequest): Single<UpdateProfileResponse>
+    fun updatePhoto(request: PhotoRequest): Single<UpdateProfileResponse>
 
 }

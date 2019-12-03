@@ -35,8 +35,11 @@ class ProfileViewModel : BaseViewModel() {
             .doFinally { isLoading.set(false) }
             .subscribe({
                 if (it.status == 0) {
-                    if (it.messages?.size!! > 0 && it.messages[0] != null) {
-                        profileInfo.value = it.messages[0]
+                    if (it.profile != null) {
+                        if(it.profile.numLatestSpendings!=null){
+                            repository.setLatestSpendingsAmount(it.profile.numLatestSpendings)
+                        }
+                        profileInfo.value = it.profile
                     }
                 } else toastMessage.value = it.message
             }, {
@@ -67,8 +70,21 @@ class ProfileViewModel : BaseViewModel() {
 
     fun onColorSelection(selectedColor: String) {
         val request = UpdateProfileRequest(
-            color = selectedColor
+            color = selectedColor,
+            numLatestSpendings = profileInfo.value?.numLatestSpendings
         )
+        updateProfile(request)
+    }
+
+    fun onAmountSelection(amount: Int) {
+        val request = UpdateProfileRequest(
+            color = profileInfo.value?.color,
+            numLatestSpendings = amount
+        )
+        updateProfile(request)
+    }
+
+    private fun updateProfile(request: UpdateProfileRequest) {
         repository.updateProfile(request)
             .subscribeOn(schedulerProvider.io)
             .observeOn(schedulerProvider.ui)

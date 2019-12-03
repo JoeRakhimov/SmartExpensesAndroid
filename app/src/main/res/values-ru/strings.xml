@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="title_home">Главная</string>
+    <string name="follow_expenses">Следите расходами</string>
+    <string name="from_anywhere">где удобно</string>
+    <string name="sign_in">Ввойти</string>
+    <string name="dont_have_an_account">Нет аккаунта?</string>
+    <string name="sign_up">Регистрация</string>
+    <string name="find_cheap_places">Найти дешевые места</string>
+    <string name="in_seconds">быстро</string>
+    <string name="share_expenses">Поделится</string>
+    <string name="with_anyone">с друзями</string>
+    <string name="sign_in_to_smart_expenses">Войти в SmartExpenses</string>
+    <string name="enter_your_password">Введите пароль</string>
+    <string name="enter_your_e_mail">Введите ваш e-mail</string>
+    <string name="email_address">E-mail адрес</string>
+    <string name="password">Пароль</string>
+    <string name="register">Регистрация</string>
+    <string name="get_started">Начало…</string>
+    <string name="confirm_password">Подтверждение пароля</string>
+    <string name="register_now">Регистрироваться сейчас</string>
+    <string name="by_signing_up_i_agree_smart_expenses">Регистрируясь, Я соглашаюсь с правилами Smart Expenses</string>
+    <string name="welcome">Добро пожаловать</string>
+    <string name="settings">Настройки</string>
+    <string name="rates">Курс валют</string>
+    <string name="my_expenses">Мои расходы</string>
+    <string name="social">Социяльный</string>
+    <string name="profile">Профиль</string>
+    <string name="title_activity_maps">Карта</string>
+    <string name="latest_spendings">Последные расходы</string>
+    <string name="cheap_places_to_explore_nearby">Доступные места по близости…</string>
+    <string name="email_is_invalid">Email не правильный</string>
+    <string name="passwords_are_not_same">Пароли не совпадает</string>
+    <string name="password_is_invalid">Пароль должен содержать минимум 8 символов один из них должен быть цифрой</string>
+    <string name="something_went_wrong">Что то пошел не так</string>
+    <string name="logout">Выйти</string>
+    <string name="name">Название</string>
+    <string name="amount">Сумма</string>
+    <string name="save">Сохранить</string>
+    <string name="select_category">Выбрать категорию</string>
+    <string name="expense_name_is_invalid">Название расхода не должен быть пустым</string>
+    <string name="category_not_selected">Категория не выбрана</string>
+    <string name="amount_should_be_more_than_0">Сумма должен быть больше 0</string>
+    <string name="service_not_available">Сервис не доступен</string>
+    <string name="invalid_lat_long_used">Неправильная долгота и широта использована</string>
+    <string name="no_address_found">Адрес не найден</string>
+    <string name="address_found">Адрес найден</string>
+    <string name="no_geocoder_available">Геокоден недоступен</string>
+    <string name="delete_expense">Удалить расход</string>
+    <string name="are_you_sure_to_delete_expense">Вы уверены удалить расход?</string>
+    <string name="cancel">Отменить</string>
+    <string name="delete">Удалить</string>
+    <string name="expense_deleted_successfully">Расход удален успешно</string>
+    <string name="total_spendings">Общые расходы</string>
+    <string name="notifications">Уведомления</string>
+    <string name="number_of_latest_spendings">Количество последный расходов</string>
+    <string name="privacy">Приватьность</string>
+    <string name="terms_and_conditions">Правила</string>
+    <string name="set_profile_color">Установить фото профиля</string>
+    <string name="choose_profile_color">Выбрать цвет</string>
+    <string name="select_picture">Выбрать изображение</string>
+    <string name="details">Детали</string>
+    <string name="date">Дата</string>
+    <string name="category">Категория</string>
+    <string name="title">Название</string>
+    <string name="currency">Валюта</string>
+    <string name="amount_in_usd">Сумма в долларах США</string>
+    <string name="address">Адрес</string>
+    <string name="choose_amount_for_recent_expenses">Выберите количество для последных расходов</string>
+
+    <string-array name="categories">
+        <item>Ресторан</item>
+        <item>Билеты</item>
+        <item>Музей</item>
+        <item>Отель</item>
+        <item>Наличные</item>
+        <item>Покупки</item>
+        <item>Топливо</item>
+        <item>Путешествие</item>
+        <item>Другие</item>
+    </string-array>
+</resources>

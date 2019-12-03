@@ -14,10 +14,7 @@ import com.joerakhimov.smartexpenses.screen.main.details.model.ExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.expenses.model.ExpensesResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.DeleteExpenseResponse
 import com.joerakhimov.smartexpenses.screen.main.home.model.RecentExpensesResponse
-import com.joerakhimov.smartexpenses.screen.main.profile.model.LogoutResponse
-import com.joerakhimov.smartexpenses.screen.main.profile.model.ProfileResponse
-import com.joerakhimov.smartexpenses.screen.main.profile.model.UpdateProfileRequest
-import com.joerakhimov.smartexpenses.screen.main.profile.model.UpdateProfileResponse
+import com.joerakhimov.smartexpenses.screen.main.profile.model.*
 import com.joerakhimov.smartexpenses.screen.main.social.model.LocationsResponse
 import com.readystatesoftware.chuck.ChuckInterceptor
 import io.reactivex.Single
@@ -74,8 +71,11 @@ interface SmartExpensesService {
     @GET("/user/profile")
     fun getProfile(): Single<ProfileResponse>
 
-    @GET("/user/profile/update")
+    @PUT("/user/profile/update")
     fun updateProfile(@Body request: UpdateProfileRequest): Single<UpdateProfileResponse>
+
+    @PUT("/user/profile/update/image")
+    fun updatePhoto(@Body request: PhotoRequest): Single<UpdateProfileResponse>
 
     @POST("/logout")
     fun logout(): Single<LogoutResponse>

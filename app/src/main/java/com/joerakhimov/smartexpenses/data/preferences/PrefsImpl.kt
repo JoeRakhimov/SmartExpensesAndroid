@@ -1,13 +1,12 @@
 package com.ipakyulibank.mobile.data.preferences
 
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-
 const val PREF_TOKEN = "token"
 const val PREF_EMAIL = "email"
+const val PREF_LATEST_SPENDINGS = "latest_spendings"
 
 const val DEFAULT_TOKEN = ""
 const val DEFAULT_EMAIL = ""
+const val DEFAULT_LATEST_SPENDINGS = 5
 
 class PrefsImpl constructor(var prefsUtil: PrefsUtil) : Prefs {
 
@@ -19,5 +18,6 @@ class PrefsImpl constructor(var prefsUtil: PrefsUtil) : Prefs {
     override fun setEmail(email: String?)= prefsUtil.setString(PREF_EMAIL, email)
     override fun removeEmail() = prefsUtil.setString(PREF_EMAIL, DEFAULT_EMAIL)
     override fun getEmail()= prefsUtil.getString(PREF_EMAIL, DEFAULT_EMAIL)
-
+    override fun getLatestSpendingsAmount() = prefsUtil.getInt(PREF_LATEST_SPENDINGS, DEFAULT_LATEST_SPENDINGS)
+    override fun setLatestSpendingsAmount(amount: Int) = prefsUtil.setInt(PREF_LATEST_SPENDINGS, amount)
 }

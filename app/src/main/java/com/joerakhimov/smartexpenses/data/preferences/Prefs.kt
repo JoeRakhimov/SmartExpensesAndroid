@@ -12,6 +12,7 @@ interface Prefs {
     fun setEmail(email: String?)
     fun getEmail(): String?
     fun removeEmail()
-
+    fun setLatestSpendingsAmount(amount: Int)
+    fun getLatestSpendingsAmount(): Int
 
 }

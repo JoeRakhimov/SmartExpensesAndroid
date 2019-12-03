@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SmartExpenses</string>
+    <string name="app_name" translatable="false">SmartExpenses</string>
     <string name="title_home">Home</string>
     <string name="follow_expenses">Follow expenses</string>
     <string name="from_anywhere">from anywhere</string>
@@ -17,7 +17,7 @@
     <string name="email_address">Email address</string>
     <string name="password">Password</string>
     <string name="register">Register</string>
-    <string name="get_started">Get started...</string>
+    <string name="get_started">Get started…</string>
     <string name="confirm_password">Confirm password</string>
     <string name="register_now">Register now</string>
     <string name="by_signing_up_i_agree_smart_expenses">By signing up, I agree Smart Expenses’\n<b> Terms and Conditions</b></string>
@@ -67,6 +67,7 @@
     <string name="currency">Currency</string>
     <string name="amount_in_usd">Amount in USD</string>
     <string name="address">Address</string>
+    <string name="choose_amount_for_recent_expenses">Choose amount for recent expenses</string>
 
     <string-array name="categories">
         <item>Restaurant</item>
