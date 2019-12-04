@@ -36,4 +36,6 @@ interface SmartExpensesRepository {
     fun setLatestSpendingsAmount(amount: Int)
     fun getLatestSpendingsAmount(): Int
     fun updatePhoto(request: PhotoRequest): Single<UpdateProfileResponse>
+    fun setPhotoFilePath(photoFilePath: String?)
+    fun getPhotoFilePath(): String?
 }

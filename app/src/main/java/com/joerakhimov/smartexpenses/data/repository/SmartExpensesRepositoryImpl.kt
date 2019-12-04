@@ -111,4 +111,11 @@ class SmartExpensesRepositoryImpl(
         return networkDataSource.updatePhoto(request)
     }
 
+    override fun setPhotoFilePath(photoFilePath: String?) {
+        prefs.setPhotoFilePath(photoFilePath)
+    }
+
+    override fun getPhotoFilePath(): String? {
+        return prefs.getPhotoFilePath()
+    }
 }

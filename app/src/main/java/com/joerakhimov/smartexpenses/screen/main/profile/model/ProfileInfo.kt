@@ -4,9 +4,6 @@ import com.google.gson.annotations.SerializedName
 
 data class ProfileInfo(
 
-	@field:SerializedName("profile_image")
-	val profileImage: String? = null,
-
 	@field:SerializedName("total_spendings")
 	val totalSpendings: Double? = null,
 
@@ -16,10 +13,10 @@ data class ProfileInfo(
 	@field:SerializedName("user_id")
 	val userId: Int? = null,
 
-	@field:SerializedName("terms_and_conditions_url ")
+	@field:SerializedName("terms_and_conditions_url")
 	val termsAndConditionsUrl: String? = null,
 
-	@field:SerializedName("privacy_url ")
+	@field:SerializedName("privacy_url")
 	val privacyUrl: String? = null,
 
 	@field:SerializedName("num_latest_spendings")

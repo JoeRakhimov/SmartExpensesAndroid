@@ -14,5 +14,7 @@ interface Prefs {
     fun removeEmail()
     fun setLatestSpendingsAmount(amount: Int)
     fun getLatestSpendingsAmount(): Int
+    fun setPhotoFilePath(path: String?)
+    fun getPhotoFilePath(): String?
 
 }

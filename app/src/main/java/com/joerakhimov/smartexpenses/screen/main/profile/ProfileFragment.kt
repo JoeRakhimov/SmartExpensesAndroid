@@ -2,7 +2,9 @@ package com.joerakhimov.smartexpenses.screen.main.profile
 
 import android.content.Intent
 import android.graphics.Color
+import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.view.*
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
@@ -47,6 +49,7 @@ class ProfileFragment : BaseFragment() {
         observeToastMessage()
         observeIsOpen()
         observeProfileInfo()
+        observePhotoFilePath()
     }
 
     private fun initProfileImage() {
@@ -95,6 +98,14 @@ class ProfileFragment : BaseFragment() {
         })
     }
 
+    private fun observePhotoFilePath() {
+        viewModel.photoFilePath.observe(this, Observer {
+            if (!it.isNullOrBlank()){
+                Picasso.get().load("file://"+it).transform(CircleTransform()).into(image_profile)
+            }
+        })
+    }
+
     private fun initProfileSettings(profileInfo: ProfileInfo) {
         recycler_profile_settings.layoutManager = LinearLayoutManager(context)
 
@@ -111,7 +122,9 @@ class ProfileFragment : BaseFragment() {
                 }),
             ProfileScreenListItem(
                 com.joerakhimov.smartexpenses.R.string.privacy,
-                View.OnClickListener { context?.startActivityToOpenUrlInBrowser(profileInfo.privacyUrl) }),
+                View.OnClickListener {
+                    context?.startActivityToOpenUrlInBrowser(profileInfo.privacyUrl)
+                }),
             ProfileScreenListItem(
                 com.joerakhimov.smartexpenses.R.string.terms_and_conditions,
                 View.OnClickListener { context?.startActivityToOpenUrlInBrowser(profileInfo.termsAndConditionsUrl) }
@@ -198,9 +211,27 @@ class ProfileFragment : BaseFragment() {
         if (resultCode == AppCompatActivity.RESULT_OK) {
             if (REQUEST_CODE_PICK_IMAGE == requestCode) {
                 val selectedImage = data?.data
-                Picasso.get().load(selectedImage).transform(CircleTransform()).into(image_profile)
+
+                if(selectedImage!=null){
+                    Picasso.get().load(selectedImage).transform(CircleTransform()).into(image_profile)
+                    val photoFilePath = getRealPathFromURI(selectedImage!!)
+                    viewModel.onPhotoSelected(photoFilePath)
+                }
+
             }
         }
+    }
+
+    private fun getRealPathFromURI(contentUri: Uri): String? {
+        var res: String? = null
+        val proj = arrayOf(MediaStore.Images.Media.DATA)
+        val cursor = context?.contentResolver?.query(contentUri, proj, null, null, null)
+        if (cursor!!.moveToFirst()) {
+            val column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA)
+            res = cursor.getString(column_index)
+        }
+        cursor.close()
+        return res
     }
 
 }

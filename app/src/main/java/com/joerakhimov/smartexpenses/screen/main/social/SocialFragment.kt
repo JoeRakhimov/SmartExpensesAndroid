@@ -14,12 +14,16 @@ import com.google.android.gms.maps.OnMapReadyCallback
 import com.google.android.gms.maps.SupportMapFragment
 import com.google.android.gms.maps.model.LatLng
 import com.google.android.gms.maps.model.MarkerOptions
+import com.google.maps.android.clustering.ClusterManager
 import com.ipakyulibank.mobile.util.permissions.MyPermissionChecker
 import com.ipakyulibank.mobile.util.permissions.MyPermissionListener
 import com.joerakhimov.smartexpenses.base.BaseFragment
 import com.joerakhimov.smartexpenses.di.Injector
+import com.joerakhimov.smartexpenses.screen.main.social.model.LocationItem
 import kotlinx.android.synthetic.main.fragment_social.*
 import javax.inject.Inject
+
+
 
 class SocialFragment : BaseFragment(), OnMapReadyCallback {
 
@@ -116,5 +120,7 @@ class SocialFragment : BaseFragment(), OnMapReadyCallback {
             findNavController().navigate(com.joerakhimov.smartexpenses.R.id.navigation_details, args) }
 
     }
+
+    private var mClusterManager: ClusterManager<LocationItem>? = null
 
 }

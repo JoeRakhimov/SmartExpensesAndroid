@@ -1,0 +1,84 @@
+<resources>
+    <string name="app_name" translatable="false">SmartExpenses</string>
+    <string name="title_home">Página inicial</string>
+    <string name="follow_expenses">Follow expenses</string>
+    <string name="from_anywhere">from anywhere</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="sign_in">Iniciar sessão</string>
+    <string name="dont_have_an_account">Não tem uma conta?</string>
+    <string name="sign_up">Cadastre-se</string>
+    <string name="find_cheap_places">Find cheap places</string>
+    <string name="in_seconds">in seconds</string>
+    <string name="share_expenses">Share expenses</string>
+    <string name="with_anyone">with_anyone</string>
+    <string name="sign_in_to_smart_expenses">Faça login em Smart Expenses</string>
+    <string name="enter_your_password">**********</string>
+    <string name="enter_your_e_mail">joe@smartexpenses.pt</string>
+    <string name="email_address">Endereço de e-mail</string>
+    <string name="password">Palavra-passe</string>
+    <string name="register">Cadastre-se</string>
+    <string name="get_started">Iniciar</string>
+    <string name="confirm_password">Confirme a Senha</string>
+    <string name="register_now">Cadastre-se</string>
+    <string name="by_signing_up_i_agree_smart_expenses">Ao inscrever-se, você concorda com nossos\n<b> Termos de uso e Condições</b></string>
+    <string name="welcome">Bem-vindo(a)</string>
+    <string name="settings">Definições</string>
+    <string name="rates">Bolsa</string>
+    <string name="my_expenses">Os meus gastos</string>
+    <string name="social">Social</string>
+    <string name="profile">Meu Perfil</string>
+    <string name="title_activity_maps">Mapa</string>
+    <string name="latest_spendings">Gastos mais recentes</string>
+    <string name="cheap_places_to_explore_nearby">Lugares baratos para explorar nas proximidades...</string>
+    <string name="email_is_invalid">E-mail inválido</string>
+    <string name="passwords_are_not_same">Senhas não são iguais</string>
+    <string name="password_is_invalid">O tamanho mínimo da senha é 8 e deve conter pelo menos um caractere e um dígito</string>
+    <string name="something_went_wrong">Algo deu errado</string>
+    <string name="logout">Terminar sessão</string>
+    <string name="name">Nome</string>
+    <string name="amount">Preço</string>
+    <string name="save">Guardar</string>
+    <string name="select_category">Selecione a categoria</string>
+    <string name="expense_name_is_invalid">O nome da despesa não deve estar vazio</string>
+    <string name="category_not_selected">Categoria não selecionada</string>
+    <string name="amount_should_be_more_than_0">O valor deve ser maior que 0</string>
+    <string name="service_not_available">Sem rede</string>
+    <string name="invalid_lat_long_used">Latitude, longitude inválida, usada</string>
+    <string name="no_address_found">Nenhum morada é usada</string>
+    <string name="address_found">Morada encontrado</string>
+    <string name="no_geocoder_available">Nenhum geocoder disponível</string>
+    <string name="delete_expense">Apagar Expense</string>
+    <string name="are_you_sure_to_delete_expense">Tem certeza de que deseja apagar este Expense?</string>
+    <string name="cancel">Cancelar</string>
+    <string name="delete">Apagar</string>
+    <string name="expense_deleted_successfully">Expense apagada com sucesso</string>
+    <string name="total_spendings">Total de gastos</string>
+    <string name="notifications">Notificações"</string>
+    <string name="number_of_latest_spendings">Número de gastos mais recentes</string>
+    <string name="privacy">Política de Privacidade</string>
+    <string name="terms_and_conditions">Termos de uso e Condições</string>
+    <string name="set_profile_color">Definir cor do perfil</string>
+    <string name="choose_profile_color">Selecione a cor do perfil</string>
+    <string name="select_picture">Selecione a imagem</string>
+    <string name="details">Detalhes</string>
+    <string name="date">Data</string>
+    <string name="category">Categoria</string>
+    <string name="title">Título</string>
+    <string name="currency">Moeda</string>
+    <string name="amount_in_usd">Preço em USD</string>
+    <string name="address">Morada</string>
+    <string name="choose_amount_for_recent_expenses">Escolha o valor para despesas recentes</string>
+
+    <string-array name="categories">
+        <item>Restaurante</item>
+        <item>Bilhetes</item>
+        <item>Museo</item>
+        <item>Hotel</item>
+        <item>Dinheiro</item>
+        <item>Compras</item>
+        <item>Gasoline</item>
+        <item>Viagem</item>
+        <item>Outros</item>
+    </string-array>
+
+</resources>

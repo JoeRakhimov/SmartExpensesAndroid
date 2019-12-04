@@ -20,6 +20,7 @@ class ProfileViewModel : BaseViewModel() {
     val email = MutableLiveData<String>()
 
     var profileInfo = MutableLiveData<ProfileInfo?>()
+    var photoFilePath = MutableLiveData<String?>()
 
     init {
         Injector.appComponent.inject(this)
@@ -40,6 +41,7 @@ class ProfileViewModel : BaseViewModel() {
                             repository.setLatestSpendingsAmount(it.profile.numLatestSpendings)
                         }
                         profileInfo.value = it.profile
+                        photoFilePath.value = repository.getPhotoFilePath()
                     }
                 } else toastMessage.value = it.message
             }, {
@@ -97,6 +99,10 @@ class ProfileViewModel : BaseViewModel() {
             }, {
                 toastMessage.value = it.message
             })
+    }
+
+    fun onPhotoSelected(photoFilePath: String?) {
+        repository.setPhotoFilePath(photoFilePath)
     }
 
 }
